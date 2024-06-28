@@ -1,0 +1,106 @@
+.project {
+  display: flex;
+  padding: 2rem;
+  margin: 2rem;
+  align-items: center;
+
+  gap: 40px;
+  background-color: rgb(237, 235, 235);
+
+  color: black;
+  text-align: left;
+
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.1); // Correspond à 'shadow-xl'
+  background-color: #f7fafc;
+
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 0.5rem;
+ 
+
+  &:hover {
+    animation: zoomInAnimation 0.3s forwards;
+  }
+}
+
+.light-reverse {
+  background-color: white !important;
+  flex-direction: row-reverse;
+}
+
+.project-img-container {
+  position: relative;
+  width: 50%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  border-radius: 5px;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.7);
+}
+
+.project-title {
+  position: absolute;
+  opacity: 0;
+  z-index: 2;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.project-img {
+  position: relative;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  aspect-ratio: 16/9;
+  width: 100%;
+  object-fit: cover;
+}
+
+.project:hover .project-img {
+  animation: zoomInAnimation 0.5s ease-out forwards;
+}
+
+.project-block {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 50%;
+}
+
+/* Responsive Tablette */
+@media screen and (min-width: 451px) and (max-width: 780px) {
+  .project {
+    flex-direction: column;
+
+    gap: 25px;
+  }
+  .project-block {
+    width: 100%;
+  }
+
+  .project-img-container {
+    width: 85%;
+  }
+}
+
+/* Responsive Mobile */
+@media screen and (max-width: 450px) {
+  .project {
+    flex-direction: column;
+
+    gap: 15px;
+    padding: 1.5rem;
+  }
+  .project-block {
+    width: 100%;
+  }
+  .project-img-container {
+    width: 100%;
+  }
+}
