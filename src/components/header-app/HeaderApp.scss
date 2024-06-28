@@ -55,6 +55,7 @@ $border-color-r: gray-900;
 
     &.mobile-menu {
       position: fixed;
+      z-index: 99999;
       left: -100%;
       top: 0;
       width: 60%;
@@ -65,6 +66,7 @@ $border-color-r: gray-900;
 
       &.open {
         left: 0;
+       
       }
 
       h1 {
