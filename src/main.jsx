@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "@/assets/styles/main.scss";
 import HeaderApp from "./components/header-app/HeaderApp";
 import Home from "./pages/Home/Index";
+import Contact from "./pages/Contact/Index";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -12,6 +13,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <HeaderApp/>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </Router>
   </React.StrictMode>

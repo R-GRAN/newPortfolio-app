@@ -1,0 +1,32 @@
+.form-container {
+  display: flex;
+  justify-content: center;
+  max-width: 1240px;
+  margin: 2rem auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  input,
+  textarea {
+    width: 70vw;
+    margin: 12px 0;
+    padding: 12px;
+  }
+  textarea {
+    height: 35vh;
+  }
+  .button {
+    background-color: #00df9a; // Correspond à 'bg-[#00df9a]'
+    color: black; // Correspond à 'text-black'
+    border-radius: 0.375rem; // Correspond à 'rounded-md'
+    font-weight: 500; // Correspond à 'font-medium'
+    width: 200px; // Correspond à 'w-[200px]'
+    margin-left: 1rem; // Correspond à 'ml-4'
+    margin-top: 1.5rem; // Correspond à 'my-6'
+    margin-bottom: 1.5rem; // Correspond à 'my-6'
+    padding-left: 1.5rem; // Correspond à 'px-6'
+    padding-right: 1.5rem; // Correspond à 'px-6'
+    padding-top: 0.75rem; // Correspond à 'py-3'
+    padding-bottom: 0.75rem; // Correspond à 'py-3'
+  }
+}
