@@ -13,14 +13,14 @@ function HeaderApp() {
   }
   return (
     <header className="header">
-      <Link to="/">
+      <Link to="/home">
         <img src={laptop} className="header-logo" alt="Logo du portfolio" />
       </Link>
       <nav>
         <ul className="desktop-menu">
           <li>
             <NavLink
-              to={"/"}
+              to={"/home"}
               className={({ isActive }) => (isActive ? "active" : "")}
             >
               Home
