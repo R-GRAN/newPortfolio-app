@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Project from "@/components/project/Project";
-import AddProject from "../../components/AddProject/AddProject";
+import AddProject from "@/components/addProject/AddProject.jsx";
+import { Link } from "react-router-dom";
 
 function Projets() {
   const [projects, setProjects] = useState([]);
@@ -97,14 +98,15 @@ function Projets() {
         <p>Il faudrait penser à alimenter ce portfolio !</p>
       )}
       {projects.map((project, index) => (
-        <Project
-          key={project._id}
-          project={project}
-          index={index}
-          token={token}
-          privateToken={privateToken}
-          handleDeleteProject={handleDeleteProject}
-        />
+        <Link key={project._id} to={project._id}>
+          <Project
+            project={project}
+            index={index}
+            token={token}
+            privateToken={privateToken}
+            handleDeleteProject={handleDeleteProject}
+          />
+        </Link>
       ))}
       {(token || privateToken) && (
         <AddProject
@@ -114,7 +116,7 @@ function Projets() {
           privateToken={privateToken}
         />
       )}
-{/* 
+      {/* 
       {!token && !privateToken && <FormToken setToken={setToken} />} */}
     </section>
   );
