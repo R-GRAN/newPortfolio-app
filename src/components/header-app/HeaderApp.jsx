@@ -1,12 +1,14 @@
 import "./HeaderApp.scss";
 import laptop from "@/assets/images/laptop.svg";
-
-import { useState } from "react";
+import { BsPersonFill, BsPersonFillCheck } from "react-icons/bs";
+import { useContext, useState } from "react";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import { Link, NavLink } from "react-router-dom";
+import { TokenContext } from "../../assets/utils/context/TokenContext";
 
 function HeaderApp({ children }) {
   const [navIsOpen, setNav] = useState(false);
+  const { token, setToken } = useContext(TokenContext);
 
   function handleNav() {
     setNav(!navIsOpen);
@@ -52,6 +54,15 @@ function HeaderApp({ children }) {
                 Contact
               </NavLink>
             </li>
+            <li>
+              <Link to={"/login"}>
+                {token ? (
+                  <BsPersonFillCheck size={25} />
+                ) : (
+                  <BsPersonFill size={25} />
+                )}
+              </Link>
+            </li>
           </ul>
           <div onClick={handleNav} className="menu-icon">
             {navIsOpen ? (
@@ -65,7 +76,7 @@ function HeaderApp({ children }) {
           <h1>Portfolio</h1>
           <li>
             <NavLink
-              to={"/"}
+              to={"/home"}
               className={({ isActive }) => (isActive ? "active" : "")}
               onClick={handleNav}
             >
@@ -98,6 +109,15 @@ function HeaderApp({ children }) {
               onClick={handleNav}
             >
               Contact
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to={"/login"}
+              className={({ isActive }) => (isActive ? "active" : "")}
+              onClick={handleNav}
+            >
+              {token ? "Logout" : "Login"}
             </NavLink>
           </li>
         </ul>
