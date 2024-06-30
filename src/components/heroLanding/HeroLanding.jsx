@@ -16,13 +16,15 @@ function HeroLanding() {
         <p className="description">
           Venez découvrir mes compétences et mon expérience à travers des
           projets concrets.
-          <h2>
-            <FaReact />
-            <FaAngular />
-            <FaNodeJs />
-            <SiMongodb />
-          </h2>
-        </p>
+          
+            <h2 className="description-logos">
+              <FaReact />
+              <FaAngular />
+              <FaNodeJs />
+              <SiMongodb />
+            </h2>
+          </p>
+       
         <Link to="/home">
           <button className="button">Cliquez ici !</button>
         </Link>

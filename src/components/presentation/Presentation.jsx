@@ -13,7 +13,7 @@ function Presentation() {
         />
         <div className="presentation-text">
           <p className="presentation-p">
-            Je suis Rémy, un développeur web qui a choisi cette profession parce
+            Je suis Rémy, développeur web qui a choisi cette profession parce
             que je suis curieux ! J&apos;aime les technologies, apprendre,
             résoudre des problèmes complexes, apprehender différentes approches
             et logiques, et le développement m&apos;offre l&apos;opportunité de

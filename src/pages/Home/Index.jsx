@@ -1,5 +1,5 @@
 import Presentation from "@/components/presentation/Presentation";
-import Projets from "@/pages/Projets";
+import Projets from "@/components/projects/Projects";
 import ContactForm from "@/components/contactForm/ContactForm";
 
 function Home() {

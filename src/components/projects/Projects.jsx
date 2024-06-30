@@ -91,34 +91,36 @@ function Projets() {
   }
 
   return (
-    <section className="portfolio" id="portfolio">
-      <h3>Mes réalisations</h3>
-      {projects.length === 0 && privateToken && <p>Va bosser mon grand !</p>}
-      {projects.length === 0 && (
-        <p>Il faudrait penser à alimenter ce portfolio !</p>
-      )}
-      {projects.map((project, index) => (
-        <Link key={project._id} to={"/project/"+project._id}>
-          <Project
-            project={project}
-            index={index}
+    <>
+      <section className="portfolio" id="portfolio">
+        <h3>Mes réalisations</h3>
+        {projects.length === 0 && privateToken && <p>Va bosser mon grand !</p>}
+        {projects.length === 0 && (
+          <p>Il faudrait penser à alimenter ce portfolio !</p>
+        )}
+        {projects.map((project, index) => (
+          <Link key={project._id} to={"/project/" + project._id}>
+            <Project
+              project={project}
+              index={index}
+              token={token}
+              privateToken={privateToken}
+              handleDeleteProject={handleDeleteProject}
+            />
+          </Link>
+        ))}
+        {(token || privateToken) && (
+          <AddProject
+            handleAddProject={handleAddProject}
+            setToken={setToken}
             token={token}
             privateToken={privateToken}
-            handleDeleteProject={handleDeleteProject}
           />
-        </Link>
-      ))}
-      {(token || privateToken) && (
-        <AddProject
-          handleAddProject={handleAddProject}
-          setToken={setToken}
-          token={token}
-          privateToken={privateToken}
-        />
-      )}
-      {/* 
+        )}
+        {/* 
       {!token && !privateToken && <FormToken setToken={setToken} />} */}
-    </section>
+      </section>
+    </>
   );
 }
 export default Projets;

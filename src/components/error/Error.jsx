@@ -13,7 +13,7 @@ function Error() {
           OUPS, QUELQUECHOSE C&apos;EST MAL PASSÉ !
         </p>
         <h1 className="title warning">404</h1>
-
+        <p className="highlight warning">Page non trouvée</p>
         <div className="sub-title-container">
           <p className="sub-title">
             J&apos;ai tout fouillé, je n&apos;ai rien trouvé
