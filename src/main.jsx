@@ -9,6 +9,7 @@ import Contact from "./pages/Contact/index";
 import Projets from "./pages/Projets";
 import SingleProject from "./pages/SingleProject/SingleProject";
 import Landing from "./pages/Landing";
+import Error from "./components/error/Error";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -22,6 +23,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path=":id" element={<SingleProject />} />
         </Route>
         <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<Error/>}/>
       </Routes>
     </Router>
   </React.StrictMode>
