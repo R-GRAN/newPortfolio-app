@@ -3,8 +3,8 @@ import "./Presentation.scss";
 
 function Presentation() {
   return (
-    <section>
-      <h3>Qui suis-je ?</h3>
+    <div className="presentation-div">
+        <h3 >Présentation</h3>
       <div className="presentation-details">
         <img
           className="presentation-img"
@@ -12,13 +12,13 @@ function Presentation() {
           alt="dessin représentant Rémy"
         />
         <div className="presentation-text">
-          <h4>Pourquoi ce métier ?</h4>
           <p className="presentation-p">
-            J&apos;ai choisi le développement web par passion pour la
-            technologie et la logique à mettre en place. J&apos;aime apprendre
-            et résoudre des problèmes complexes, et le développement
-            m&apos;offre l&apos;opportunité de faire tout ça au quotidien.
-          </p>{" "}
+            Je suis Rémy, un développeur web qui a choisi cette profession parce
+            que je suis curieux ! J&apos;aime les technologies, apprendre,
+            résoudre des problèmes complexes, apprehender différentes approches
+            et logiques, et le développement m&apos;offre l&apos;opportunité de
+            faire toutes ces belles choses au quotidien.
+          </p>
           <p className="presentation-p">
             Bon j&apos;admets aussi que le haut salaire 💸 que l&apos;on
             m&apos;a fait miroiter ainsi le sentiment de liberté que l&apos;on
@@ -35,7 +35,7 @@ function Presentation() {
           </p>
         </div>
       </div>
-    </section>
+    </div>
   );
 }
 export default Presentation;
