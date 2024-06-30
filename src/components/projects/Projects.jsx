@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 function Projets() {
   const [projects, setProjects] = useState([]);
-  const [token, setToken] = useState(sessionStorage.getItem("Superbe Token"));
+  const [token, setToken] = useState();
   const [privateToken, setPrivateToken] = useState(
     sessionStorage.getItem("token")
   );
