@@ -27,7 +27,6 @@ function SingleProject() {
 
   return (
     <>
-      <HeaderApp />
       <section>
         <article className="project">
           <div className="project-img-container">

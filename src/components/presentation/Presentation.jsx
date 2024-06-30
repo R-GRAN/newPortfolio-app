@@ -20,7 +20,7 @@ function Presentation() {
             faire toutes ces belles choses au quotidien.
           </p>
           <p className="presentation-p">
-            Bon j&apos;admets aussi que le haut salaire 💸 que l&apos;on
+            Bon j&apos;admets que le haut salaire 💸 que l&apos;on
             m&apos;a fait miroiter ainsi le sentiment de liberté que l&apos;on
             m&apos;a promis avec le télétravail 🏝️ sont aussi de belles sources
             de motivation !

@@ -11,6 +11,7 @@ import Landing from "@/pages/Landing";
 import Error from "@/components/error/Error";
 import HeaderWrapper from "@/components/headerWrapper/HeaderWrapper";
 import LoginFormAuth from "@/components/loginFormAuth/LoginFormAuth";
+import Building from "@/components/Building/Building";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -24,6 +25,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
               <Route path="" element={<AllProjects />} />
               <Route path=":id" element={<SingleProject />} />
             </Route>
+            <Route path="/skills" element={<Building />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/login" element={<LoginFormAuth />} />
             <Route path="*" element={<Error />} />
