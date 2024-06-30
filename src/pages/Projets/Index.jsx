@@ -98,7 +98,7 @@ function Projets() {
         <p>Il faudrait penser à alimenter ce portfolio !</p>
       )}
       {projects.map((project, index) => (
-        <Link key={project._id} to={project._id}>
+        <Link key={project._id} to={"/project/"+project._id}>
           <Project
             project={project}
             index={index}

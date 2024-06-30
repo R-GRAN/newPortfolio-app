@@ -1,14 +1,20 @@
+.presentation-div {
+  background-color: white;
+  color: black;
+  text-align: center;
+  padding-block: 1rem;
+}
+
 .presentation-details {
   display: flex;
   align-items: center;
   background: white;
-  color:black;
+  color: black;
   overflow: hidden;
-  border-radius: 5px;
 }
 
 .presentation-img {
-  max-height: 325px;
+  max-height: 400px;
 }
 
 .presentation-text {
@@ -16,21 +22,22 @@
   font-weight: 700;
   padding: 30px;
 }
-.presentation-p{
-  padding-block: 2rem;
+.presentation-p {
+  margin-block: 1.5rem;
 }
 
 /* Responsive Tablette */
 @media screen and (min-width: 451px) and (max-width: 780px) {
   .presentation-details {
     flex-direction: column;
-    margin: 0 20px;
+    margin-inline: 20px;
+    border-radius: 5px;
   }
   .presentation-text {
     padding: 20px;
   }
-  .presentation-p{
-    padding-block: 1.5rem;
+  .presentation-p {
+    margin-block: 1rem;
   }
 }
 
@@ -38,7 +45,8 @@
 @media screen and (max-width: 450px) {
   .presentation-details {
     flex-direction: column;
-    margin: 0;
+    margin-inline: 10px;
+    border-radius: 5px;
   }
 
   .presentation-img {
@@ -50,7 +58,7 @@
     padding: 15px;
   }
 
-  .presentation-p{
-    padding-block: 1.25rem;
+  .presentation-p {
+    margin-block: 0.5rem;
   }
 }
