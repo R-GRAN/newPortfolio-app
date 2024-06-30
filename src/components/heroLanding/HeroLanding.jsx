@@ -3,7 +3,7 @@ import { SiMongodb } from "react-icons/si";
 import "./HeroLanding.scss";
 import { Link } from "react-router-dom";
 
-const HeroLanding = () => {
+function HeroLanding() {
   return (
     <div className="hero">
       <div className="container">
@@ -24,12 +24,11 @@ const HeroLanding = () => {
           </h2>
         </p>
         <Link to="/home">
-
-        <button className="button">Get Started</button>
+          <button className="button">Get Started</button>
         </Link>
       </div>
     </div>
   );
-};
+}
 
 export default HeroLanding;
