@@ -7,15 +7,15 @@ function HeroLanding() {
   return (
     <div className="hero">
       <div className="container">
-        <p className="highlight">CONSTRUISONS VOTRE FUTUR ENSEMBLE</p>
-        <h1 className="title">Développeur web</h1>
+        <p className="highlight">BIENVENUE SUR MON PORTFOLIO</p>
+        <h1 className="title">Rémy GRANGENOIS </h1>
 
         <div className="sub-title-container">
-          <p className="sub-title">Rapidité, efficacité, maintenabilité</p>
+          <p className="sub-title">Développeur web</p>
         </div>
         <p className="description">
-          Nous créons et déployons des sites web performants et modernes qui
-          répondent à vos besoins.
+          Venez découvrir mes compétences et mon expérience à travers des
+          projets concrets.
           <h2>
             <FaReact />
             <FaAngular />
@@ -24,7 +24,7 @@ function HeroLanding() {
           </h2>
         </p>
         <Link to="/home">
-          <button className="button">Get Started</button>
+          <button className="button">Cliquez ici !</button>
         </Link>
       </div>
     </div>
