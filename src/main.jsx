@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { TokenProvider } from "@/assets/utils/context/TokenContext";
+import { FakeTokenProvider } from "@/assets/utils/context/FakeTokenContext";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "@/assets/styles/main.scss";
 import Home from "@/pages/Home/index.jsx";
@@ -12,26 +13,30 @@ import Error from "@/components/error/Error";
 import HeaderWrapper from "@/components/headerWrapper/HeaderWrapper";
 import LoginFormAuth from "@/components/loginFormAuth/LoginFormAuth";
 import Building from "@/components/Building/Building";
+import AddProjectPage from "@/pages/AddProjectPage/AddProjectPage";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <TokenProvider>
-      <Router>
-        <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="/" element={<HeaderWrapper />}>
-            <Route path="/home" element={<Home />} />
-            <Route path="/project">
-              <Route path="" element={<AllProjects />} />
-              <Route path=":id" element={<SingleProject />} />
+      <FakeTokenProvider>
+        <Router>
+          <Routes>
+            <Route path="/" element={<Landing />} />
+            <Route path="/" element={<HeaderWrapper />}>
+              <Route path="/home" element={<Home />} />
+              <Route path="/project">
+                <Route path="" element={<AllProjects />} />
+                <Route path="add" element={<AddProjectPage />} />
+                <Route path=":id" element={<SingleProject />} />
+              </Route>
+              <Route path="/skills" element={<Building />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/login" element={<LoginFormAuth />} />
+              <Route path="*" element={<Error />} />
             </Route>
-            <Route path="/skills" element={<Building />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/login" element={<LoginFormAuth />} />
-            <Route path="*" element={<Error />} />
-          </Route>
-        </Routes>
-      </Router>
+          </Routes>
+        </Router>
+      </FakeTokenProvider>
     </TokenProvider>
   </React.StrictMode>
 );

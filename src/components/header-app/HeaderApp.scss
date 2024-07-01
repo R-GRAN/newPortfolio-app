@@ -19,10 +19,10 @@ $border-color-r: gray-900;
   .header-logo {
     filter: invert(1) brightness(2);
   }
-  a{
+  a {
     color: white;
     text-decoration: none;
-}
+  }
 
   h1 {
     width: 100%;
@@ -43,12 +43,12 @@ $border-color-r: gray-900;
       li {
         list-style: none;
         padding: 1rem;
-        a{
-            color: white;
-            text-decoration: none;
+        a {
+          color: white;
+          text-decoration: none;
         }
-        a.active{
-            text-decoration: underline;
+        a.active {
+          text-decoration: underline;
         }
       }
     }
@@ -66,11 +66,15 @@ $border-color-r: gray-900;
 
       &.open {
         left: 0;
-       
       }
 
       h1 {
         margin: 1rem;
+      }
+      .menu-div-title-log-indicator {
+        display: flex;
+        align-items: center;
+        padding-right: 1em;
       }
 
       li {

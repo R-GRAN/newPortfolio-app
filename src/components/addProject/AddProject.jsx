@@ -1,17 +1,21 @@
-
-import { useState, useRef } from "react";
+import { useState, useRef, useContext } from "react";
+import { TokenContext } from "@/assets/utils/context/TokenContext";
+import { FakeTokenContext } from "@/assets/utils/context/FakeTokenContext";
+import "@/components/addProject/AddProject.scss";
 
 function AddProject(props) {
-  const { handleAddProject, setToken, token, privateToken } = props;
+  const { handleAddProject } = props;
   const formRef = useRef(null);
   const [file, setFile] = useState(null);
+  const { token, setToken } = useContext(TokenContext);
+  const { fakeToken } = useContext(FakeTokenContext);
 
   function getUserId() {
-    if (privateToken != null) {
-      const parsedPrivateToken = JSON.parse(privateToken);
-      return parsedPrivateToken.userId;
-    } else if (token != null) {
-      return token;
+    if (token != null) {
+      const parsedToken = JSON.parse(token);
+      return parsedToken.userId;
+    } else if (fakeToken != null) {
+      return fakeToken;
     }
   }
   const [project, setProject] = useState({
@@ -74,7 +78,7 @@ function AddProject(props) {
   }
 
   function handleClick() {
-    if (token) {
+    if (fakeToken) {
       sessionStorage.removeItem("Superbe Token");
       setToken(null);
       alert(
@@ -110,7 +114,7 @@ function AddProject(props) {
 
     formRef.current.reset();
 
-    if (token) {
+    if (fakeToken) {
       handleAddProject(project);
       setProject({
         userId: getUserId(),
@@ -123,10 +127,8 @@ function AddProject(props) {
         techniques: [],
         technos: [],
       });
-      alert(
-        "Félicitations 🎊🥳🎉 ! Tu viens de poster un projet ..pratiquement.. comme je le fais ! ( sauf que moi c'est pour de bon 😉 )"
-      );
-    } else if (privateToken) {
+      alert("Félicitations 🎊🥳🎉 ! Tu viens de poster un projet !");
+    } else if (token) {
       //handleAddProject(project);
       addproject();
     }
@@ -230,12 +232,8 @@ function AddProject(props) {
           />
         </div>
       </form>
-      {token && (
-        <input
-          type="button"
-          value="Supprimer le Superbe Token 🪙"
-          onClick={handleClick}
-        />
+      {fakeToken && (
+        <button onClick={handleClick}>Supprimer le Superbe Token 🪙</button>
       )}
     </div>
   );

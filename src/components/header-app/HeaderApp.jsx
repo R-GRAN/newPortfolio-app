@@ -1,14 +1,20 @@
 import "./HeaderApp.scss";
 import laptop from "@/assets/images/laptop.svg";
-import { BsPersonFill, BsPersonFillCheck } from "react-icons/bs";
+import {
+  BsPersonFill,
+  BsPersonFillCheck,
+  BsPersonFillLock,
+} from "react-icons/bs";
 import { useContext, useState } from "react";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import { Link, NavLink } from "react-router-dom";
-import { TokenContext } from "../../assets/utils/context/TokenContext";
+import { TokenContext } from "@/assets/utils/context/TokenContext";
+import { FakeTokenContext } from "@/assets/utils/context/FakeTokenContext";
 
 function HeaderApp({ children }) {
   const [navIsOpen, setNav] = useState(false);
-  const { token, setToken } = useContext(TokenContext);
+  const { token } = useContext(TokenContext);
+  const { fakeToken } = useContext(FakeTokenContext);
 
   function handleNav() {
     setNav(!navIsOpen);
@@ -73,7 +79,10 @@ function HeaderApp({ children }) {
           </div>
         </nav>
         <ul className={navIsOpen ? "mobile-menu open" : "mobile-menu"}>
-          <h1>Portfolio</h1>
+          <div className="menu-div-title-log-indicator">
+            <h1>Portfolio</h1>
+            <span>{fakeToken ? <BsPersonFillLock size={25} /> : ""}</span>
+          </div>
           <li>
             <NavLink
               to={"/home"}
@@ -93,6 +102,18 @@ function HeaderApp({ children }) {
               Projets
             </NavLink>
           </li>
+          {fakeToken && (
+            <li>
+              <NavLink
+                to={"/project/add"}
+                className={({ isActive }) => (isActive ? "active" : "")}
+                onClick={handleNav}
+              >
+                Ajouter un projet
+              </NavLink>
+            </li>
+          )}
+
           <li>
             <NavLink
               to={"/skills"}
