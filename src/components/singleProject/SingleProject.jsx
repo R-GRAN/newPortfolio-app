@@ -21,7 +21,7 @@ function SingleProject() {
     }
   }
     fetchProject();
-  }, []); 
+  }, [project]); 
 
 
   return (

@@ -22,6 +22,21 @@ function Projets() {
     searchTokens()
   },[]);
 
+  async function fetchProjects() {
+    try {
+      const res = await fetch(
+        "https://portfolio-backend-seven-henna.vercel.app/api/projects"
+      );
+      if (!res.ok) {
+        throw new Error("Erreur lors de la récupération des données");
+      }
+      const data = await res.json();
+      setProjects(data);
+    } catch (error) {
+      console.error("Erreur fetch:", error);
+    }
+  }
+
   function handleAddProject(project) {
     setProjects([...projects, project]);
   }
