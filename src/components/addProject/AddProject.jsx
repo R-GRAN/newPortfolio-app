@@ -1,13 +1,14 @@
 import { useState, useRef, useContext } from "react";
 import { TokensContext } from "@/assets/utils/context/TokensContext";
+import { ProjectsContext } from "@/assets/utils/context/ProjectsContext";
 import "@/components/addProject/AddProject.scss";
 import { useNavigate } from "react-router-dom";
 
-function AddProject(props) {
-  const { handleAddProject } = props;
+function AddProject() {
   const formRef = useRef(null);
   const [file, setFile] = useState(null);
   const { token, fakeToken, setFakeToken } = useContext(TokensContext);
+  const { projects,setProjects } = useContext(ProjectsContext);
   const navigate = useNavigate();
 
   function getUserId() {
@@ -112,7 +113,7 @@ function AddProject(props) {
     formRef.current.reset();
 
     if (fakeToken) {
-      handleAddProject(project);
+      setProjects([...projects,project]);
       setProject({
         userId: getUserId(),
         _id: Date.now(),
@@ -125,6 +126,7 @@ function AddProject(props) {
         technos: [],
       });
       alert("Félicitations 🎊🥳🎉 ! Tu viens de poster un projet !");
+      navigate("/home")
     } else if (token) {
       //handleAddProject(project);
       addproject();

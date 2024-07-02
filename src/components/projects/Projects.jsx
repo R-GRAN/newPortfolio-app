@@ -1,4 +1,4 @@
-import { useEffect, useContext } from "react";
+import { useContext, useEffect } from "react";
 import Project from "@/components/project/Project";
 import AddProject from "@/components/addProject/AddProject.jsx";
 import { Link } from "react-router-dom";
@@ -7,11 +7,21 @@ import { TokensContext } from "@/assets/utils/context/TokensContext.jsx";
 
 function Projets() {
   const { projects, setProjects } = useContext(ProjectsContext);
-  const { token, fakeToken } = useContext(TokensContext);
+  const { token, fakeToken, setToken, setFakeToken } =
+    useContext(TokensContext);
 
-  function handleAddProject(project) {
-    setProjects([...projects, project]);
-  }
+    
+  useEffect(() => {
+    function searchTokens() {
+      if (sessionStorage.getItem("token")) {
+        setToken(sessionStorage.getItem("token"));
+      }
+      if (sessionStorage.getItem("fakeToken")) {
+        setFakeToken(sessionStorage.getItem("fakeToken"));
+      }
+    }
+    searchTokens()
+  },[]);
 
   async function fetchProjects() {
     try {
@@ -28,9 +38,9 @@ function Projets() {
     }
   }
 
-  useEffect(() => {
-    fetchProjects();
-  }, []);
+  function handleAddProject(project) {
+    setProjects([...projects, project]);
+  }
 
   async function handleDeleteProject(id) {
     // Vérifier si l'ID du projet est fourni

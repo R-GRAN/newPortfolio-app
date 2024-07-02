@@ -5,6 +5,7 @@ function SingleProject() {
   const { id } = useParams();
   const [project, setProject] = useState([]);
 
+   useEffect(() => {
   async function fetchProject() {
     try {
       const res = await fetch(
@@ -19,10 +20,9 @@ function SingleProject() {
       console.error("Erreur fetch:", error);
     }
   }
-
-  useEffect(() => {
     fetchProject();
-  }, []);
+  }, [project]); 
+
 
   return (
     <section>
