@@ -1,4 +1,4 @@
-import { useEffect, useContext } from "react";
+import { useContext, useEffect } from "react";
 import Project from "@/components/project/Project";
 import AddProject from "@/components/addProject/AddProject.jsx";
 import { Link } from "react-router-dom";
@@ -7,30 +7,24 @@ import { TokensContext } from "@/assets/utils/context/TokensContext.jsx";
 
 function Projets() {
   const { projects, setProjects } = useContext(ProjectsContext);
-  const { token, fakeToken } = useContext(TokensContext);
+  const { token, fakeToken, setToken, setFakeToken } =
+    useContext(TokensContext);
+
+  useEffect(() => {
+    function searchTokens() {
+      if (sessionStorage.getItem("token")) {
+        setToken(sessionStorage.getItem("token"));
+      }
+      if (sessionStorage.getItem("fakeToken")) {
+        setFakeToken(sessionStorage.getItem("fakeToken"));
+      }
+    }
+    searchTokens()
+  },[]);
 
   function handleAddProject(project) {
     setProjects([...projects, project]);
   }
-
-  async function fetchProjects() {
-    try {
-      const res = await fetch(
-        "https://portfolio-backend-seven-henna.vercel.app/api/projects"
-      );
-      if (!res.ok) {
-        throw new Error("Erreur lors de la récupération des données");
-      }
-      const data = await res.json();
-      setProjects(data);
-    } catch (error) {
-      console.error("Erreur fetch:", error);
-    }
-  }
-
-  useEffect(() => {
-    fetchProjects();
-  }, []);
 
   async function handleDeleteProject(id) {
     // Vérifier si l'ID du projet est fourni

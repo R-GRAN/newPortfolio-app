@@ -1,11 +1,13 @@
 import { useState, useContext } from "react";
 import { TokensContext } from "@/assets/utils/context/TokensContext.jsx";
 import "@/components/fakeTokenForm/FakeTokenForm.scss";
+import { useNavigate } from "react-router-dom";
 
 function FakeTokenForm() {
   const { fakeToken, setFakeToken } = useContext(TokensContext);
   const [identifiant, setIdentifiant] = useState("azerty");
   const [password, setPassword] = useState("password1234");
+  const navigate = useNavigate();
 
   function handleSubmit(evt) {
     evt.preventDefault();
@@ -16,6 +18,7 @@ function FakeTokenForm() {
         );
         sessionStorage.setItem("fakeToken", "🪙");
         setFakeToken(sessionStorage.getItem("fakeToken"));
+        navigate("/home");
       } else {
         alert("Ne soyez pas gourmand, un Token 🪙 à la fois ");
       }
@@ -53,7 +56,7 @@ function FakeTokenForm() {
           value={password}
           onChange={(evt) => setPassword(evt.target.value)}
         />
-        <button >S&apos;identifier</button>
+        <button>S&apos;identifier</button>
       </form>
     </div>
   );

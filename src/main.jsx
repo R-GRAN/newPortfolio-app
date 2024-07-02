@@ -13,7 +13,7 @@ import Error from "@/components/error/Error";
 import HeaderWrapper from "@/components/headerWrapper/HeaderWrapper";
 import LoginFormAuth from "@/components/loginFormAuth/LoginFormAuth";
 import Building from "@/components/Building/Building";
-import AddProjectPage from "@/pages/AddProjectPage/AddProjectPage";
+import AddProjectPage from "@/pages/AddProjectPage/AddProjectPage.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -26,7 +26,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
               <Route path="/home" element={<Home />} />
               <Route path="/project">
                 <Route path="" element={<AllProjects />} />
-                <Route path="add" element={<AddProjectPage />} />
+                <Route path="add" element={<AddProjectPage/>} />
                 <Route path=":id" element={<SingleProject />} />
               </Route>
               <Route path="/skills" element={<Building />} />
