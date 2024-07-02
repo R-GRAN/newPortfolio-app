@@ -1,0 +1,74 @@
+.playground-section {
+  width: 100%;
+  background-color: white;
+  color: black;
+  padding: 4rem 1rem;
+
+  .playground-container {
+    max-width: 1240px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .playground-image {
+    width: 500px;
+    margin: 1rem auto;
+
+    @media (min-width: 768px) {
+      margin: 1rem 0;
+    }
+  }
+
+  .playground-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+    @media (min-width: 768px) {
+      text-align: left;
+    }
+  }
+
+  .highlight-text {
+    color: #00df9a;
+    font-weight: bold;
+  }
+
+  .main-heading {
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 0.5rem 0;
+
+    @media (min-width: 640px) {
+      font-size: 3rem;
+    }
+
+    @media (min-width: 768px) {
+      font-size: 4rem;
+    }
+  }
+
+  .description {
+    margin: 1rem 0;
+  }
+
+  .cta-button {
+    background-color: black;
+    color: #00df9a;
+    width: 200px;
+    border-radius: 0.375rem;
+    font-weight: 500;
+    margin: 1.5rem auto;
+    padding: 0.75rem;
+
+    @media (min-width: 768px) {
+      margin: 1.5rem 0;
+    }
+  }
+}

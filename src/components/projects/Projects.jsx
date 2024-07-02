@@ -1,14 +1,13 @@
-import { useState, useEffect } from "react";
+import { useEffect, useContext } from "react";
 import Project from "@/components/project/Project";
 import AddProject from "@/components/addProject/AddProject.jsx";
 import { Link } from "react-router-dom";
+import { ProjectsContext } from "@/assets/utils/context/ProjectsContext.jsx";
+import { TokensContext } from "@/assets/utils/context/TokensContext.jsx";
 
 function Projets() {
-  const [projects, setProjects] = useState([]);
-  const [token, setToken] = useState();
-  const [privateToken, setPrivateToken] = useState(
-    sessionStorage.getItem("token")
-  );
+  const { projects, setProjects } = useContext(ProjectsContext);
+  const { token, fakeToken } = useContext(TokensContext);
 
   function handleAddProject(project) {
     setProjects([...projects, project]);
@@ -48,7 +47,7 @@ function Projets() {
       );
 
       if (check === "Delete") {
-        if (token) {
+        if (fakeToken) {
           //Retirer le projet
           updatedProjects.splice(index, 1);
 
@@ -57,8 +56,8 @@ function Projets() {
           alert(
             `Félicitations 🎊🥳🎉 ! Tu viens de supprimer le projet "${projectTitle}"..pratiquement.. comme je le fais ! ( sauf que moi c'est pour de bon 😉 )`
           );
-        } else if (privateToken) {
-          const ParsedToken = JSON.parse(privateToken);
+        } else if (token) {
+          const ParsedToken = JSON.parse(token);
 
           try {
             fetch(
@@ -94,7 +93,7 @@ function Projets() {
     <>
       <section className="portfolio" id="portfolio">
         <h3>Mes réalisations</h3>
-        {projects.length === 0 && privateToken && <p>Va bosser mon grand !</p>}
+        {projects.length === 0 && token && <p>Va bosser mon grand !</p>}
         {projects.length === 0 && (
           <p>Il faudrait penser à alimenter ce portfolio !</p>
         )}
@@ -103,18 +102,15 @@ function Projets() {
             <Project
               project={project}
               index={index}
+              faketoken={fakeToken}
               token={token}
-              privateToken={privateToken}
               handleDeleteProject={handleDeleteProject}
             />
           </Link>
         ))}
-        {(token || privateToken) && (
+        {(fakeToken || token) && (
           <AddProject
             handleAddProject={handleAddProject}
-            setToken={setToken}
-            token={token}
-            privateToken={privateToken}
           />
         )}
         {/* 

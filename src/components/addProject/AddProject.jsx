@@ -6,7 +6,7 @@ function AddProject(props) {
   const { handleAddProject } = props;
   const formRef = useRef(null);
   const [file, setFile] = useState(null);
-  const { token,fakeToken, setToken } = useContext(TokensContext);
+  const { token, fakeToken, setFakeToken } = useContext(TokensContext);
 
   function getUserId() {
     if (token != null) {
@@ -77,10 +77,10 @@ function AddProject(props) {
 
   function handleClick() {
     if (fakeToken) {
-      sessionStorage.removeItem("Superbe Token");
-      setToken(null);
+      sessionStorage.removeItem("fakeToken");
+      setFakeToken(null);
       alert(
-        "Tu as supprimé le Superbe Token 🪙, mais tu en as besoin pour gérer les projets ! Tu dois t'identifier à nouveau pour en récuperer un autre ! J'aurais peut être du te prévenir avant que tu ne l'effaces.. désolé 😇 "
+        "Vous avez supprimé le token 🪙, mais vous en avez besoin pour gérer les projets ! Vous pouvez vous identifier à nouveau pour en récuperer un autre ! J'aurais peut être du vous prévenir avant 😇.."
       );
     } else {
       alert(
@@ -133,8 +133,8 @@ function AddProject(props) {
   }
 
   return (
-    <div className="addProject">
-      <h4>Remplir le formulaire </h4>
+    <section className="addProject">
+      <h3>Remplir le formulaire </h3>
       <form
         ref={formRef}
         id="addProject-project-form"
@@ -231,9 +231,11 @@ function AddProject(props) {
         </div>
       </form>
       {fakeToken && (
-        <button onClick={handleClick}>Supprimer le Superbe Token 🪙</button>
+        <button onClick={handleClick} className="orange">
+          Supprimer le Token 🪙
+        </button>
       )}
-    </div>
+    </section>
   );
 }
 export default AddProject;
