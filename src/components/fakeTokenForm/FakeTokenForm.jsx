@@ -35,7 +35,7 @@ function FakeTokenForm() {
         onSubmit={(evt) => handleSubmit(evt)}
       >
         <h3>Gerer les projets</h3>
-        <label htmlFor="identifiant">Identifiant : </label>
+        <label htmlFor="identifiant">Identifiant</label>
         <input
           type="text"
           name="identifiant"
@@ -44,7 +44,7 @@ function FakeTokenForm() {
           value={identifiant}
           onChange={(evt) => setIdentifiant(evt.target.value)}
         />
-        <label htmlFor="password">Mot de passe : </label>
+        <label htmlFor="password">Mot de passe</label>
         <input
           type="password"
           name="password"
@@ -53,7 +53,7 @@ function FakeTokenForm() {
           value={password}
           onChange={(evt) => setPassword(evt.target.value)}
         />
-        <input type="submit" value="S'identifier" className="btn-class green" />
+        <button >S&apos;identifier</button>
       </form>
     </div>
   );

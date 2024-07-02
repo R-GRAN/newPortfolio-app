@@ -10,10 +10,9 @@ import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import { Link, NavLink } from "react-router-dom";
 import { TokensContext } from "@/assets/utils/context/TokensContext";
 
-
 function HeaderApp({ children }) {
   const [navIsOpen, setNav] = useState(false);
-  const { token,fakeToken  } = useContext(TokensContext);
+  const { token, fakeToken } = useContext(TokensContext);
 
   function handleNav() {
     setNav(!navIsOpen);
@@ -61,8 +60,10 @@ function HeaderApp({ children }) {
             </li>
             <li>
               <Link to={"/login"}>
-                {token ? (
-                  <BsPersonFillCheck size={25} />
+                {fakeToken ? (
+                  <BsPersonFillLock size={25} color="#27d6e0" />
+                ) : token ? (
+                  <BsPersonFillCheck size={25} color="#00df9a" />
                 ) : (
                   <BsPersonFill size={25} />
                 )}
@@ -80,7 +81,15 @@ function HeaderApp({ children }) {
         <ul className={navIsOpen ? "mobile-menu open" : "mobile-menu"}>
           <div className="menu-div-title-log-indicator">
             <h1>Portfolio</h1>
-            <span>{fakeToken ? <BsPersonFillLock size={25} /> : ""}</span>
+            <span>
+              {fakeToken ? (
+                <BsPersonFillLock size={25} color="#27d6e0" />
+              ) : token ? (
+                <BsPersonFillCheck size={25} color="#00df9a" />
+              ) : (
+                ""
+              )}
+            </span>
           </div>
           <li>
             <NavLink
@@ -101,17 +110,7 @@ function HeaderApp({ children }) {
               Projets
             </NavLink>
           </li>
-          {fakeToken && (
-            <li>
-              <NavLink
-                to={"/project/add"}
-                className={({ isActive }) => (isActive ? "active" : "")}
-                onClick={handleNav}
-              >
-                Ajouter un projet
-              </NavLink>
-            </li>
-          )}
+          
 
           <li>
             <NavLink
@@ -122,6 +121,15 @@ function HeaderApp({ children }) {
               Compétences
             </NavLink>
           </li>
+          <li>
+              <NavLink
+                to={"/project/add"}
+                className={({ isActive }) => (isActive ? "active" : "")}
+                onClick={handleNav}
+              >
+                Jouer avec l&apos;appli
+              </NavLink>
+            </li>
           <li>
             <NavLink
               to={"/contact"}

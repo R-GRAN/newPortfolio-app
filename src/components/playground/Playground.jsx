@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function Playground() {
   return (
     <>
-      <div className="playground-section">
+      <div className="playground-section" id="playground">
         <div className="playground-container">
           <div className="playground-content">
             <p className="highlight-text">Faites comme chez vous</p>

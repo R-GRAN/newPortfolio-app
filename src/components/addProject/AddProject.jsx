@@ -1,12 +1,14 @@
 import { useState, useRef, useContext } from "react";
 import { TokensContext } from "@/assets/utils/context/TokensContext";
 import "@/components/addProject/AddProject.scss";
+import { useNavigate } from "react-router-dom";
 
 function AddProject(props) {
   const { handleAddProject } = props;
   const formRef = useRef(null);
   const [file, setFile] = useState(null);
   const { token, fakeToken, setFakeToken } = useContext(TokensContext);
+  const navigate = useNavigate();
 
   function getUserId() {
     if (token != null) {
@@ -82,10 +84,7 @@ function AddProject(props) {
       alert(
         "Vous avez supprimé le token 🪙, mais vous en avez besoin pour gérer les projets ! Vous pouvez vous identifier à nouveau pour en récuperer un autre ! J'aurais peut être du vous prévenir avant 😇.."
       );
-    } else {
-      alert(
-        "On ne peut supprimer l'insupprimable.. ou un truc du genre ! Bref, il semblerait qu'il n'y ait pas de Superbe Token par ici 🔍 !"
-      );
+      navigate("/home");
     }
   }
 

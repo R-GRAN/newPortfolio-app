@@ -109,12 +109,8 @@ function Projets() {
           </Link>
         ))}
         {(fakeToken || token) && (
-          <AddProject
-            handleAddProject={handleAddProject}
-          />
+          <AddProject handleAddProject={handleAddProject} />
         )}
-        {/* 
-      {!token && !privateToken && <FormToken setToken={setToken} />} */}
       </section>
     </>
   );
