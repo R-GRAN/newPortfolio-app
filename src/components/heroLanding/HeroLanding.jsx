@@ -9,22 +9,19 @@ function HeroLanding() {
       <div className="container">
         <p className="highlight">BIENVENUE SUR MON PORTFOLIO</p>
         <h1 className="title">Rémy GRANGENOIS </h1>
-
         <div className="sub-title-container">
           <p className="sub-title">Développeur web</p>
         </div>
         <p className="description">
           Venez découvrir mes compétences et mon expérience à travers des
           projets concrets.
-          
-            <h2 className="description-logos">
-              <FaReact />
-              <FaAngular />
-              <FaNodeJs />
-              <SiMongodb />
-            </h2>
-          </p>
-       
+        </p>{" "}
+        <h2 className="description-logos">
+          <FaReact />
+          <FaAngular />
+          <FaNodeJs />
+          <SiMongodb />
+        </h2>
         <Link to="/home">
           <button className="button">Cliquez ici !</button>
         </Link>
