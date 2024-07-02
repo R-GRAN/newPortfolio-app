@@ -5,7 +5,7 @@ import { ProjectsProvider } from "@/assets/utils/context/ProjectsContext";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "@/assets/styles/main.scss";
 
-import Contact from "@/pages/Contact/index";
+import Contact from "@/pages/Contact/index.jsx";
 import AllProjects from "@/pages/AllProjects/index";
 import SingleProject from "@/pages/SingleProject/SingleProject";
 import Landing from "@/pages/Landing";
