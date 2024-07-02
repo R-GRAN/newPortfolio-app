@@ -6,7 +6,7 @@ import { TokensContext } from "@/assets/utils/context/TokensContext";
 function FormAuth() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { token, setToken } = useContext(TokensContext);
+  const { token, setToken, setFakeToken } = useContext(TokensContext);
   const navigate = useNavigate();
 
   //recupere les valeurs des champs email et mot de passe du formulaire
@@ -36,6 +36,7 @@ function FormAuth() {
             .then((data) => {
               if (sessionStorage.getItem("fakeToken")) {
                 sessionStorage.removeItem("fakeToken");
+                setFakeToken(null);
               }
               sessionStorage.setItem("token", JSON.stringify(data));
               setToken(sessionStorage.getItem("token"));

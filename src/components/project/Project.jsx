@@ -1,8 +1,8 @@
 import "./Project.scss";
 
-function Project({ project, index, }) {
+function Project({ project }) {
   return (
-    <article className={index % 2 === 0 ? "project" : "project light-reverse"}>
+    <article className="project">
       <div className="project-img-container">
         <img
           className="project-img"

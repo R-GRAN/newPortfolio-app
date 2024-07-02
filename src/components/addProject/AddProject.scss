@@ -1,4 +1,4 @@
-.addProject{
+.addProject {
   margin-block: 20px;
 }
 
@@ -47,43 +47,13 @@
   border-radius: 5px;
 }
 
-.btn-class {
-  width: 50%;
-  font-size: 21px;
-  border-radius: 5px;
-  color: white;
-  margin: 10px;
-  cursor: pointer;
-  text-wrap: wrap;
-  //background: linear-gradient(to right, #431365, #44086a, #2d0983, #6e0176);
-}
-
-.btn-class:hover {
-  animation: zoomInAnimation 1s forwards;
-}
-
-.green:hover {
-  transition: 1s;
-  background-color: rgb(28, 136, 18);
-}
-.orange:hover {
-  transition: 1s;
-  background-color: rgb(179, 105, 36);
-}
-
 .orange {
-  animation: lookAtMe 2s linear infinite;
-  background-color: rgb(152, 105, 17);
-  padding: 25px;
-  width: auto;
-}
-.green {
-  background-color: rgb(19, 87, 19);
+  background-color: orange;
 }
 
 /* Responsive Tablette */
 @media screen and (min-width: 451px) and (max-width: 780px) {
-    .btn-class  {
+  .btn-class {
     font-size: 18px;
   }
 
@@ -101,12 +71,12 @@
 
   .addProject-project-form .addProject-project-form-image {
     width: 100%;
-  } 
+  }
 }
 
 /* Responsive Mobile */
 @media screen and (max-width: 450px) {
-  .btn-class  {
+  .btn-class {
     font-size: 16px;
   }
   .addProject-project-form {
@@ -122,7 +92,7 @@
 
   .addProject-project-form .addProject-project-form-image {
     width: 100%;
-  } 
+  }
 
   .addProject-project-form {
     input,
