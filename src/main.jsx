@@ -13,7 +13,7 @@ import Error from "@/components/error/Error";
 import HeaderWrapper from "@/components/headerWrapper/HeaderWrapper";
 import LoginFormAuth from "@/components/loginFormAuth/LoginFormAuth";
 import Building from "@/components/Building/Building";
-import AddProjectPage from "@/pages/AddProjectPage/AddProjectPage.";
+import AddProjectPage from "@/pages/AddProjectPage/AddProjectPage";
 import Home from "@/pages/Home/index";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
