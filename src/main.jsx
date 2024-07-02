@@ -4,7 +4,7 @@ import { TokensProvider } from "@/assets/utils/context/TokensContext";
 import { ProjectsProvider } from "@/assets/utils/context/ProjectsContext";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "@/assets/styles/main.scss";
-import Home from "@/pages/Home/index.jsx";
+
 import Contact from "@/pages/Contact/index.jsx";
 import AllProjects from "@/pages/AllProjects/index";
 import SingleProject from "@/pages/SingleProject/SingleProject";
@@ -14,6 +14,7 @@ import HeaderWrapper from "@/components/headerWrapper/HeaderWrapper";
 import LoginFormAuth from "@/components/loginFormAuth/LoginFormAuth";
 import Building from "@/components/Building/Building";
 import AddProjectPage from "@/pages/AddProjectPage/AddProjectPage.jsx";
+import Home from "@/pages/Home/index";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
