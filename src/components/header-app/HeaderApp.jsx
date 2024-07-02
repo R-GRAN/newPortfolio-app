@@ -8,13 +8,12 @@ import {
 import { useContext, useState } from "react";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import { Link, NavLink } from "react-router-dom";
-import { TokenContext } from "@/assets/utils/context/TokenContext";
-import { FakeTokenContext } from "@/assets/utils/context/FakeTokenContext";
+import { TokensContext } from "@/assets/utils/context/TokensContext";
+
 
 function HeaderApp({ children }) {
   const [navIsOpen, setNav] = useState(false);
-  const { token } = useContext(TokenContext);
-  const { fakeToken } = useContext(FakeTokenContext);
+  const { token,fakeToken  } = useContext(TokensContext);
 
   function handleNav() {
     setNav(!navIsOpen);

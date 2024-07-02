@@ -1,12 +1,12 @@
 import { useState, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "@/components/loginFormAuth/LoginFormAuth.scss";
-import { TokenContext } from "@/assets/utils/context/TokenContext";
+import { TokensContext } from "@/assets/utils/context/TokensContext";
 
 function FormAuth() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { token, setToken } = useContext(TokenContext);
+  const { token, setToken } = useContext(TokensContext);
   const navigate = useNavigate();
 
   //recupere les valeurs des champs email et mot de passe du formulaire
@@ -34,8 +34,8 @@ function FormAuth() {
             .json()
             //enregistre le token dans le sessionStorage
             .then((data) => {
-              if (sessionStorage.getItem("Superbe Token")) {
-                sessionStorage.removeItem("Superbe Token");
+              if (sessionStorage.getItem("fakeToken")) {
+                sessionStorage.removeItem("fakeToken");
               }
               sessionStorage.setItem("token", JSON.stringify(data));
               setToken(sessionStorage.getItem("token"));
@@ -60,7 +60,7 @@ function FormAuth() {
           fetchAuth(evt);
         }}
       >
-        {!sessionStorage.getItem("token") && (
+        {!token && (
           <>
             <label htmlFor="email">Email</label>
             <input
@@ -86,13 +86,13 @@ function FormAuth() {
           </>
         )}
 
-        {sessionStorage.getItem("token") && (
+        {token && (
           <Link
             to={"/"}
             onClick={(evt) => {
               evt.preventDefault();
               sessionStorage.removeItem("token");
-              setToken(false);
+              setToken(null);
               alert("Déconnexion réussie, à bientôt !");
               navigate("/home");
             }}

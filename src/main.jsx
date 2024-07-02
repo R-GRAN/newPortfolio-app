@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { TokenProvider } from "@/assets/utils/context/TokenContext";
-import { FakeTokenProvider } from "@/assets/utils/context/FakeTokenContext";
+import { TokensProvider } from "@/assets/utils/context/TokensContext";
+import { ProjectsProvider } from "@/assets/utils/context/ProjectsContext";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "@/assets/styles/main.scss";
 import Home from "@/pages/Home/index.jsx";
@@ -17,8 +17,8 @@ import AddProjectPage from "@/pages/AddProjectPage/AddProjectPage";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <TokenProvider>
-      <FakeTokenProvider>
+    <TokensProvider>
+      <ProjectsProvider>
         <Router>
           <Routes>
             <Route path="/" element={<Landing />} />
@@ -36,7 +36,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             </Route>
           </Routes>
         </Router>
-      </FakeTokenProvider>
-    </TokenProvider>
+      </ProjectsProvider>
+    </TokensProvider>
   </React.StrictMode>
 );

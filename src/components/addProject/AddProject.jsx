@@ -1,14 +1,12 @@
 import { useState, useRef, useContext } from "react";
-import { TokenContext } from "@/assets/utils/context/TokenContext";
-import { FakeTokenContext } from "@/assets/utils/context/FakeTokenContext";
+import { TokensContext } from "@/assets/utils/context/TokensContext";
 import "@/components/addProject/AddProject.scss";
 
 function AddProject(props) {
   const { handleAddProject } = props;
   const formRef = useRef(null);
   const [file, setFile] = useState(null);
-  const { token, setToken } = useContext(TokenContext);
-  const { fakeToken } = useContext(FakeTokenContext);
+  const { token,fakeToken, setToken } = useContext(TokensContext);
 
   function getUserId() {
     if (token != null) {
