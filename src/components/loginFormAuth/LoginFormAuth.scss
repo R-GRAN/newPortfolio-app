@@ -1,9 +1,18 @@
-.formAuth{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    a{color:white}
-    input{
-        margin-block: 0.5rem;
-    }
+.formAuth {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  a {
+    color: white;
+  }
+  input {
+    margin-block: 0.5rem;
+  }
+  .orange {
+    background-color: orange !important;
+  }
+  .bar {
+    width: 25%;
+    margin: 2rem;
+  }
 }

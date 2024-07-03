@@ -14,7 +14,7 @@ function FakeTokenForm() {
     if (identifiant === "azerty" && password === "password1234") {
       if (!fakeToken) {
         alert(
-          "Vous venez d'être gratifié d'un Token 🪙 dans votre session storage !"
+          "Vous venez d'être gratifié d'un Token 🪙 dans votre session storage, profitez en !"
         );
         sessionStorage.setItem("fakeToken", "🪙");
         setFakeToken(sessionStorage.getItem("fakeToken"));

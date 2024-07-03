@@ -59,22 +59,22 @@ function HeaderApp({ children }) {
               </NavLink>
             </li>
             <li>
-              <Link to={"/login"}>
+              <NavLink to={"/login"}  className={(token||fakeToken)?"connected":""}>
                 {fakeToken ? (
-                  <BsPersonFillLock size={25} color="#27d6e0" />
+                  <BsPersonFillLock size={25} />
                 ) : token ? (
-                  <BsPersonFillCheck size={25} color="#00df9a" />
+                  <BsPersonFillCheck size={25} />
                 ) : (
-                  <BsPersonFill size={25} />
+                  <BsPersonFill size={25}  />
                 )}
-              </Link>
+              </NavLink>
             </li>
           </ul>
           <div onClick={handleNav} className="menu-icon">
             {navIsOpen ? (
-              <AiOutlineClose size={20} />
+              <AiOutlineClose size={25}/>
             ) : (
-              <AiOutlineMenu size={20} />
+              <AiOutlineMenu size={25} />
             )}
           </div>
         </nav>
@@ -83,9 +83,9 @@ function HeaderApp({ children }) {
             <h1>Portfolio</h1>
             <span>
               {fakeToken ? (
-                <BsPersonFillLock size={25} color="#27d6e0" />
+                <BsPersonFillLock size={25}  />
               ) : token ? (
-                <BsPersonFillCheck size={25} color="#00df9a" />
+                <BsPersonFillCheck size={25}  />
               ) : (
                 ""
               )}
@@ -110,7 +110,6 @@ function HeaderApp({ children }) {
               Projets
             </NavLink>
           </li>
-          
 
           <li>
             <NavLink
@@ -122,14 +121,14 @@ function HeaderApp({ children }) {
             </NavLink>
           </li>
           <li>
-              <NavLink
-                to={"/project/add"}
-                className={({ isActive }) => (isActive ? "active" : "")}
-                onClick={handleNav}
-              >
-                Jouer avec l&apos;appli
-              </NavLink>
-            </li>
+            <NavLink
+              to={"/project/add"}
+              className={({ isActive }) => (isActive ? "active" : "")}
+              onClick={handleNav}
+            >
+              Jouer avec l&apos;appli
+            </NavLink>
+          </li>
           <li>
             <NavLink
               to={"/contact"}
@@ -145,7 +144,7 @@ function HeaderApp({ children }) {
               className={({ isActive }) => (isActive ? "active" : "")}
               onClick={handleNav}
             >
-              {token ? "Logout" : "Login"}
+              {token || fakeToken ? "Se déconnecter" : "Se connecter"}
             </NavLink>
           </li>
         </ul>

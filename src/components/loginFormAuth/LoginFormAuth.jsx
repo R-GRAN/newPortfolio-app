@@ -6,7 +6,8 @@ import { TokensContext } from "@/assets/utils/context/TokensContext";
 function FormAuth() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { token, setToken, setFakeToken } = useContext(TokensContext);
+  const { token, fakeToken, setToken, setFakeToken } =
+    useContext(TokensContext);
   const navigate = useNavigate();
 
   //recupere les valeurs des champs email et mot de passe du formulaire
@@ -87,19 +88,31 @@ function FormAuth() {
           </>
         )}
 
-        {token && (
-          <Link
-            to={"/"}
-            onClick={(evt) => {
-              evt.preventDefault();
-              sessionStorage.removeItem("token");
-              setToken(null);
-              alert("Déconnexion réussie, à bientôt !");
-              navigate("/home");
-            }}
-          >
-            <button>Déconnexion</button>
-          </Link>
+        {(fakeToken || token) && (
+          <>
+            <hr className="bar"/>
+            <Link
+              to={"/"}
+              onClick={(evt) => {
+                evt.preventDefault();
+                if (token) {
+                  sessionStorage.removeItem("token");
+                  setToken(null);
+                  alert("Déconnexion réussie, à bientôt !");
+                } else {
+                  sessionStorage.removeItem("fakeToken");
+                  setFakeToken(null);
+                  alert("Vous avez quitté le mode invité ! Merci et à bientôt !");
+                }
+
+                navigate("/home");
+              }}
+            >
+              <button className="orange">
+                {fakeToken ? "Quitter le mode invité" : "Déconnexion"}
+              </button>
+            </Link>
+          </>
         )}
         <Link to={"/home"}>Retourner à la page d&apos;accueil</Link>
       </form>

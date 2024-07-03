@@ -44,11 +44,16 @@ $border-color-r: gray-900;
         list-style: none;
         padding: 1rem;
         a {
-          color: white;
           text-decoration: none;
+          padding: 1em;
+          border-radius: 8px;
         }
-        a.active {
-          text-decoration: underline;
+        .active {
+          color: #000000 !important;
+          background-color: #00df9acc;
+        }
+        .connected {
+          color: #00df9a;
         }
       }
     }
@@ -75,6 +80,10 @@ $border-color-r: gray-900;
         display: flex;
         align-items: center;
         padding-right: 1em;
+      }
+
+      .connected {
+        color: #00df9a;
       }
 
       li {
