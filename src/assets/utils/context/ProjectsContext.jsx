@@ -1,13 +1,15 @@
 import { createContext, useState,useEffect,useContext } from "react";
 import { TokensContext } from "@/assets/utils/context/TokensContext.jsx";
+
 export const ProjectsContext = createContext();
+
 
 export function ProjectsProvider({ children }) {
   const [projects, setProjects] = useState([]);
   const {setToken, setFakeToken } =
   useContext(TokensContext);
   useEffect(() => {
-    async function fetchProjects() {
+async function fetchProjects() {
       try {
         const res = await fetch(
           "https://portfolio-backend-seven-henna.vercel.app/api/projects"
@@ -20,7 +22,7 @@ export function ProjectsProvider({ children }) {
       } catch (error) {
         console.error("Erreur fetch:", error);
       }
-    }
+    }     
 
     fetchProjects();
   }, []); 

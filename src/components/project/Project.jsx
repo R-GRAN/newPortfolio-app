@@ -1,7 +1,8 @@
+
 import "./Project.scss";
 
 function Project({ project }) {
-  
+
   return (
     <article className="project">
       <div className="project-img-container">

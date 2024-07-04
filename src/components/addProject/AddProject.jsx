@@ -3,6 +3,10 @@ import { TokensContext } from "@/assets/utils/context/TokensContext";
 import { ProjectsContext } from "@/assets/utils/context/ProjectsContext";
 import "@/components/addProject/AddProject.scss";
 import { useNavigate } from "react-router-dom";
+import { FaSyncAlt } from "react-icons/fa";
+
+
+
 
 function AddProject() {
   const formRef = useRef(null);
@@ -10,15 +14,6 @@ function AddProject() {
   const { token, fakeToken, setFakeToken } = useContext(TokensContext);
   const { projects, setProjects } = useContext(ProjectsContext);
   const navigate = useNavigate();
-
-  function getUserId() {
-    if (token != null) {
-      const parsedToken = JSON.parse(token);
-      return parsedToken.userId;
-    } else if (fakeToken != null) {
-      return fakeToken;
-    }
-  }
 
   const [project, setProject] = useState({
     userId: getUserId(),
@@ -36,6 +31,29 @@ function AddProject() {
     ],
     technos: ["React", "MongoDB", "Sass", "HTML", "CSS", "Figma"],
   });
+  function getUserId() {
+    if (token != null) {
+      const parsedToken = JSON.parse(token);
+      return parsedToken.userId;
+    } else if (fakeToken != null) {
+      return fakeToken;
+    }
+  }
+
+  async function fetchProjects(){
+    try {
+      const res = await fetch(
+        "https://portfolio-backend-seven-henna.vercel.app/api/projects"
+      );
+      if (!res.ok) {
+        throw new Error("Erreur lors de la récupération des données");
+      }
+      const data = await res.json();
+      setProjects(data);
+    } catch (error) {
+      console.error("Erreur fetch:", error);
+    }
+  }
 
   async function addproject() {
     const parsedToken = JSON.parse(sessionStorage.getItem("token"));
@@ -235,6 +253,11 @@ function AddProject() {
       {fakeToken && (
         <button onClick={handleClick} className="orange">
           Supprimer le Token 🪙
+        </button>
+      )}
+      {(fakeToken && projects.length===0)&& (
+        <button onClick={fetchProjects} >
+          Réinitialiser les projets <FaSyncAlt className="spinArrow"/>
         </button>
       )}
     </section>
