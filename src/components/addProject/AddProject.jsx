@@ -11,15 +11,6 @@ function AddProject() {
   const { projects, setProjects } = useContext(ProjectsContext);
   const navigate = useNavigate();
 
-  function getUserId() {
-    if (token != null) {
-      const parsedToken = JSON.parse(token);
-      return parsedToken.userId;
-    } else if (fakeToken != null) {
-      return fakeToken;
-    }
-  }
-
   const [project, setProject] = useState({
     userId: getUserId(),
     _id: Date.now().toString(),
@@ -36,7 +27,14 @@ function AddProject() {
     ],
     technos: ["React", "MongoDB", "Sass", "HTML", "CSS", "Figma"],
   });
-
+  function getUserId() {
+    if (token != null) {
+      const parsedToken = JSON.parse(token);
+      return parsedToken.userId;
+    } else if (fakeToken != null) {
+      return fakeToken;
+    }
+  }
   async function addproject() {
     const parsedToken = JSON.parse(sessionStorage.getItem("token"));
 
@@ -233,6 +231,11 @@ function AddProject() {
         </div>
       </form>
       {fakeToken && (
+        <button onClick={handleClick} className="orange">
+          Supprimer le Token 🪙
+        </button>
+      )}
+      {(fakeToken && )&& (
         <button onClick={handleClick} className="orange">
           Supprimer le Token 🪙
         </button>
