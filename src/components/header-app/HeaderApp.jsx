@@ -5,6 +5,7 @@ import {
   BsPersonFillCheck,
   BsPersonFillLock,
 } from "react-icons/bs";
+import { ImExit } from "react-icons/im";
 import { useContext, useState } from "react";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import { Link, NavLink } from "react-router-dom";
@@ -30,7 +31,7 @@ function HeaderApp({ children }) {
                 to={"/home"}
                 className={({ isActive }) => (isActive ? "active" : "")}
               >
-                Home
+                Accueil
               </NavLink>
             </li>
 
@@ -59,20 +60,23 @@ function HeaderApp({ children }) {
               </NavLink>
             </li>
             <li>
-              <NavLink to={"/login"}  className={(token||fakeToken)?"connected":""}>
+              <NavLink
+                to={"/login"}
+                className={token || fakeToken ? "connected" : ""}
+              >
                 {fakeToken ? (
                   <BsPersonFillLock size={25} />
                 ) : token ? (
                   <BsPersonFillCheck size={25} />
                 ) : (
-                  <BsPersonFill size={25}  />
+                  <BsPersonFill size={25} />
                 )}
               </NavLink>
             </li>
           </ul>
           <div onClick={handleNav} className="menu-icon">
             {navIsOpen ? (
-              <AiOutlineClose size={25}/>
+              <AiOutlineClose size={25} />
             ) : (
               <AiOutlineMenu size={25} />
             )}
@@ -97,7 +101,7 @@ function HeaderApp({ children }) {
               className={({ isActive }) => (isActive ? "active" : "")}
               onClick={handleNav}
             >
-              Home
+              Accueil
             </NavLink>
           </li>
 
@@ -146,6 +150,12 @@ function HeaderApp({ children }) {
             >
               {token || fakeToken ? "Se déconnecter" : "Se connecter"}
             </NavLink>
+          </li>
+          <li>
+            <button onClick={() => setNav(false)}>
+              {" "}
+              Quitter le menu <ImExit size={20} />{" "}
+            </button>
           </li>
         </ul>
       </header>
