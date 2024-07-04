@@ -19,9 +19,10 @@ function AddProject() {
       return fakeToken;
     }
   }
+
   const [project, setProject] = useState({
     userId: getUserId(),
-    _id: Date.now(),
+    _id: Date.now().toString(),
     title: "Un tout nouveau projet",
     category: "Front end",
     description:
@@ -54,13 +55,14 @@ function AddProject() {
           body: bodyFormData,
         }
       );
+
       if (!response.ok) {
         throw new Error("Network response was not ok");
       } else {
         alert(`Projet "${project.title}" créé !`);
         setProject({
           userId: getUserId(),
-          _id: Date.now(),
+          _id: Date.now().toString(),
           title: "",
           category: "",
           description: "",
@@ -115,7 +117,7 @@ function AddProject() {
       setProjects([...projects, project]);
       setProject({
         userId: getUserId(),
-        _id: Date.now(),
+        _id: Date.now().toString(),
         title: "",
         category: "",
         description: "",

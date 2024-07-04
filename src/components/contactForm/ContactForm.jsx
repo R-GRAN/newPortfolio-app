@@ -4,17 +4,18 @@ import { useRef } from "react";
 import emailjs from "@emailjs/browser";
 
 function ContactForm() {
-  const form = useRef();
+  const formRef = useRef();
 
   function sendEmail(evt) {
     evt.preventDefault();
 
     emailjs
-      .sendForm("service_eglvmy9", "template_eux1x47", form.current, {
+      .sendForm("service_eglvmy9", "template_eux1x47", formRef.current, {
         publicKey: "t1N33IIePsGmmEOnJ",
       })
       .then(
         () => {
+          formRef.current.reset();
           console.log("SUCCESS!");
         },
         (error) => {
@@ -32,7 +33,7 @@ function ContactForm() {
       <div className="form-container">
         <form
           className="form"
-          ref={form}
+          ref={formRef}
           id="contact-form"
           onSubmit={sendEmail}
         >

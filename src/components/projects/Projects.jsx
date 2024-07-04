@@ -22,7 +22,7 @@ function Projets() {
     } catch (error) {
       console.error("Erreur fetch:", error);
     }
-  }
+  } 
 
   function handleAddProject(project) {
     setProjects([...projects, project]);
@@ -98,8 +98,6 @@ function Projets() {
             <Project
               project={project}
               index={index}
-              faketoken={fakeToken}
-              token={token}
               handleDeleteProject={handleDeleteProject}
             />
           </Link>
