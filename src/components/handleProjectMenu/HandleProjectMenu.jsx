@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { TokensContext } from "@/assets/utils/context/TokensContext";
 import { ProjectsContext } from "@/assets/utils/context/ProjectsContext";
 import { useNavigate } from "react-router-dom";
+import "@/components/handleProjectMenu/HandleProjectMenu.scss"
 
 function HandleProjectMenu({ id }) {
   const { token, fakeToken } = useContext(TokensContext);
@@ -86,7 +87,7 @@ function HandleProjectMenu({ id }) {
 
   return (
     <div className="HandleProjectMenu">
-      <button onClick={() => handleDeleteProject(id)}>
+      <button className="red" onClick={() => handleDeleteProject(id)}>
         Supprimer le projet
       </button>
     </div>

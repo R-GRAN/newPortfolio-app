@@ -56,13 +56,6 @@
   animation: rotate 4s linear infinite;
 }
 
-@keyframes rotate{
-  from{transform: rotate(0deg)}
-  to{
-    transform:rotate(360deg)
-  }
-}
-
 /* Responsive Tablette */
 @media screen and (min-width: 451px) and (max-width: 780px) {
   .btn-class {

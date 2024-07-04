@@ -147,7 +147,6 @@ function AddProject() {
       alert("Félicitations 🎊🥳🎉 ! Tu viens de poster un projet !");
       navigate("/home");
     } else if (token) {
-      //handleAddProject(project);
       addproject();
     }
   }
@@ -166,7 +165,7 @@ function AddProject() {
         }}
       >
         <div className="addProject-project-form-block">
-          <label htmlFor="title">Title : </label>
+          <label htmlFor="title">Title</label>
           <input
             type="text"
             name="title"
@@ -177,7 +176,7 @@ function AddProject() {
             onChange={(evt) => handleChange(evt)}
           />
 
-          <label htmlFor="category">Categories : </label>
+          <label htmlFor="category">Categories</label>
           <select
             name="category"
             id="category"
@@ -191,7 +190,7 @@ function AddProject() {
             <option value="Fullstack">Fullstack</option>
           </select>
 
-          <label htmlFor="description">Description : </label>
+          <label htmlFor="description">Description</label>
           <textarea
             name="description"
             id="description"
@@ -204,7 +203,7 @@ function AddProject() {
           ></textarea>
         </div>
         <div className="addProject-project-form-image">
-          <label htmlFor="imageUrl">ImageUrl : </label>
+          <label htmlFor="imageUrl">ImageUrl</label>
           <input
             className="inputFiles"
             type="file"
@@ -215,7 +214,7 @@ function AddProject() {
             onChange={(evt) => handleChangeImg(evt)}
           />
 
-          <label htmlFor="githubUrl">GithubUrl : </label>
+          <label htmlFor="githubUrl">GithubUrl</label>
           <input
             type="text"
             name="githubUrl"
@@ -225,7 +224,7 @@ function AddProject() {
             required
             onChange={(evt) => handleChange(evt)}
           />
-          <label htmlFor="techniques">Techniques : </label>
+          <label htmlFor="techniques">Techniques</label>
           <input
             type="text"
             name="techniques"
@@ -234,7 +233,7 @@ function AddProject() {
             placeholder="Format : Réaliser le découpage d'une maquette - Intégrer une librairie externe - Mettre en œuvre des opérations CRUD"
             onChange={(evt) => handleChangeIntoArray(evt)}
           />
-          <label htmlFor="technos">Technos : </label>
+          <label htmlFor="technos">Technos</label>
           <input
             type="text"
             name="technos"
