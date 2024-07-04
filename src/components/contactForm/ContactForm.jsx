@@ -1,5 +1,27 @@
 import "./ContactForm.scss";
+
+import { useRef } from "react";
+import emailjs from "@emailjs/browser";
+
 function ContactForm() {
+  const form = useRef();
+
+  function sendEmail(evt) {
+    evt.preventDefault();
+
+    emailjs
+      .sendForm("service_eglvmy9", "template_eux1x47", form.current, {
+        publicKey: "t1N33IIePsGmmEOnJ",
+      })
+      .then(
+        () => {
+          console.log("SUCCESS!");
+        },
+        (error) => {
+          console.log("FAILED...", error.text);
+        }
+      );
+  }
   return (
     <section className="contact" id="contact">
       <h3> Besoin de me contacter ?</h3>
@@ -8,7 +30,12 @@ function ContactForm() {
         email en cliquant sur le lien un peu plus bas.
       </h4>
       <div className="form-container">
-        <form className="form" id="contact-form">
+        <form
+          className="form"
+          ref={form}
+          id="contact-form"
+          onSubmit={sendEmail}
+        >
           <div className="patronyme">
             <label htmlFor="nom">Nom</label>
             <div className="inputBox">

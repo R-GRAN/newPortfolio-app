@@ -8,7 +8,7 @@ function AddProject() {
   const formRef = useRef(null);
   const [file, setFile] = useState(null);
   const { token, fakeToken, setFakeToken } = useContext(TokensContext);
-  const { projects,setProjects } = useContext(ProjectsContext);
+  const { projects, setProjects } = useContext(ProjectsContext);
   const navigate = useNavigate();
 
   function getUserId() {
@@ -96,10 +96,9 @@ function AddProject() {
   function handleChangeImg(evt) {
     const { name, files } = evt.target;
     setFile(evt.target.files[0]);
-    if (token) {
-      const imageUrl = URL.createObjectURL(files[0]);
-      setProject({ ...project, [name]: imageUrl });
-    }
+
+    const imageUrl = URL.createObjectURL(files[0]);
+    setProject({ ...project, [name]: imageUrl });
   }
   function handleChangeIntoArray(evt) {
     const { name, value } = evt.target;
@@ -113,7 +112,7 @@ function AddProject() {
     formRef.current.reset();
 
     if (fakeToken) {
-      setProjects([...projects,project]);
+      setProjects([...projects, project]);
       setProject({
         userId: getUserId(),
         _id: Date.now(),
@@ -126,7 +125,7 @@ function AddProject() {
         technos: [],
       });
       alert("Félicitations 🎊🥳🎉 ! Tu viens de poster un projet !");
-      navigate("/home")
+      navigate("/home");
     } else if (token) {
       //handleAddProject(project);
       addproject();

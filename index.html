@@ -12,9 +12,9 @@
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
         "name": "Grangenois Rémy",
-        "image": "https://r-gran.github.io/portfolio/assets/images/mac_open.webp",
+        "image": "https://new-portfolio-app-drab.vercel.app/assets/images/mac_open.webp",
         "@id": "",
-        "url": "https://r-gran.github.io/portfolio/",
+        "url": "https://new-portfolio-app-drab.vercel.app",
         "telephone": "0612345678",
         "priceRange": "0€ - 250 €",
         "address": {
@@ -24,7 +24,7 @@
           "postalCode": "67000",
           "addressCountry": "FR"
         },
-        "sameAs": "https://github.com/R-GRAN/"
+        "sameAs": "https://new-portfolio-app-drab.vercel.app"
       }
     </script>
 
@@ -40,7 +40,7 @@
     <meta property="business:contact_data:phone_number" content="0612345678" />
     <meta
       property="business:contact_data:website"
-      content="https://r-gran.github.io/portfolio/"
+      content="https://new-portfolio-app-drab.vercel.app"
     />
 
     <!-- Balises meta Open Graph 'website' pour les informations sur la page pour les reseaux sociaux -->
@@ -51,9 +51,9 @@
     />
     <meta
       property="og:description"
-      content="Découvrez Rémy Grangenois à Strasbourg, développeur web Junior passionné. En front-end et back-end, je crée des expériences web exceptionnelles avec HTML, CSS, JavaScript, React et Node.js. Explorez mes projets variés pour une vision inspirante du web."
+      content="Découvrez Rémy Grangenois à Strasbourg, développeur web passionné. Je crée des applications web exceptionnelles avec React, Angular, typeScript,  et Node.js. Explorez mes projets variés pour une vision inspirante du web."
     />
-    <meta property="og:url" content="https://r-gran.github.io/portfolio/" />
+    <meta property="og:url" content="https://new-portfolio-app-drab.vercel.app" />
     <meta property="og:type" content="website" />
     <meta
       property="og:image"
@@ -68,9 +68,9 @@
     />
     <meta
       name="twitter:description"
-      content="Découvrez Rémy Grangenois à Strasbourg, développeur web Junior passionné. En front-end et back-end, je crée des expériences web exceptionnelles avec HTML, CSS, JavaScript, React et Node.js. Explorez mes projets variés pour une vision inspirante du web."
+      content="Découvrez Rémy Grangenois à Strasbourg, développeur web passionné. Je crée des applications web exceptionnelles avec React, Angular, typeScript,  et Node.js. Explorez mes projets variés pour une vision inspirante du web."
     />
-    <meta name="twitter:url" content="https://r-gran.github.io/portfolio/" />
+    <meta name="twitter:url" content="https://new-portfolio-app-drab.vercel.app" />
     <meta
       name="twitter:image"
       content="https://r-gran.github.io/portfolio/assets/images/mac_open.webp"
@@ -82,59 +82,26 @@
 
     <link rel="icon" href=src/assets/images/laptop.svg type="image/x-icon" />
 
-    <!-- Font Awesome  -->
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-
-    <link rel="preload" as="image" href="./assets/laptop-DvCPwsUa.svg" />
+   <!--  <link rel="preload" as="image" href="src/assets/laptop.svg" /> -->
 
         <!-- Script EmailJS  -->
-
         <script
         type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
       ></script>
       <script type="text/javascript">
         (function () {
-          // https://dashboard.emailjs.com/admin/account
           emailjs.init({
             publicKey: "t1N33IIePsGmmEOnJ",
           });
         })();
       </script>
   
-      <script type="text/javascript">
-        window.onload = function () {
-          document
-            .getElementById("contact-form")
-            .addEventListener("submit", function (event) {
-              event.preventDefault();
-              emailjs.sendForm("service_eglvmy9", "template_c910cat", this).then(
-                () => {
-                  alert("Votre message a bien été envoyé !");
-                  document.getElementById("contact-form").reset();
-  
-                  console.log("SUCCESS!");
-                },
-                (error) => {
-                  alert("Désolé, essayez sur un autre support !");
-                  console.log("FAILED...", error);
-                }
-              );
-            });
-        };
-      </script>
-
     <title>Rémy Grangenois | Développeur Web à Strasbourg</title>
     <meta
       name="description"
-      content="Découvrez Rémy Grangenois à Strasbourg, développeur web Junior passionné. En front-end et back-end, je crée des expériences web exceptionnelles avec HTML, CSS, JavaScript, React et Node.js. Explorez mes projets variés pour une vision inspirante du web."
+      content="Découvrez Rémy Grangenois à Strasbourg, développeur web passionné. Je crée des applications web exceptionnelles avec React, Angular, typeScript,  et Node.js. Explorez mes projets variés pour une vision inspirante du web."
     />
     <meta name="robots" content="index, follow" />
   </head>

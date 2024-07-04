@@ -83,9 +83,9 @@ function HeaderApp({ children }) {
             <h1>Portfolio</h1>
             <span>
               {fakeToken ? (
-                <BsPersonFillLock size={25}  />
+                <BsPersonFillLock size={25} className="connected" />
               ) : token ? (
-                <BsPersonFillCheck size={25}  />
+                <BsPersonFillCheck size={25} className="connected" />
               ) : (
                 ""
               )}

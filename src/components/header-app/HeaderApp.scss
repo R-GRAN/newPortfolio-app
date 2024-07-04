@@ -1,15 +1,15 @@
 // Variables
 $primary-color: #00df9a;
 $background-color: #000300;
-$border-color: gray-600;
-$border-color-r: gray-900;
+$border-color: #000300 ;
+$border-color-r:  #000300;
 
 // Styles
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 6rem; // 24 * 0.25rem
+  height: 6rem;
   max-width: 1240px;
   margin-left: auto;
   margin-right: auto;
