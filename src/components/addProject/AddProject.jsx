@@ -5,9 +5,6 @@ import "@/components/addProject/AddProject.scss";
 import { useNavigate } from "react-router-dom";
 import { FaSyncAlt } from "react-icons/fa";
 
-
-
-
 function AddProject() {
   const formRef = useRef(null);
   const [file, setFile] = useState(null);
@@ -40,7 +37,7 @@ function AddProject() {
     }
   }
 
-  async function fetchProjects(){
+  async function fetchProjects() {
     try {
       const res = await fetch(
         "https://portfolio-backend-seven-henna.vercel.app/api/projects"
@@ -89,7 +86,7 @@ function AddProject() {
           techniques: [],
           technos: [],
         });
-
+        fetchProjects();
         return await response.json();
       }
     } catch (err) {
@@ -99,13 +96,19 @@ function AddProject() {
   }
 
   function handleClick() {
-    if (fakeToken) {
+    if (
+      confirm(
+        "Vous êtes sur le point de supprimer le token 🪙, vous en avez besoin pour gérer les projets. Cliquez sur OK pour le supprimer ou Annuler pour continuer ?"
+      )
+    ) {
       sessionStorage.removeItem("fakeToken");
       setFakeToken(null);
       alert(
-        "Vous avez supprimé le token 🪙, mais vous en avez besoin pour gérer les projets ! Vous pouvez vous identifier à nouveau pour en récuperer un autre ! J'aurais peut être du vous prévenir avant 😇.."
+        "Vous avez supprimé le token 🪙 ! Vous pouvez vous identifier à nouveau pour en récuperer un autre !"
       );
       navigate("/home");
+    } else {
+      alert("Prenez votre temps et vous pouvez continuer sereinement");
     }
   }
 
@@ -133,6 +136,9 @@ function AddProject() {
 
     if (fakeToken) {
       setProjects([...projects, project]);
+      alert(
+        `Félicitations ! Vous venez de de poster le projet "${project.title}" !`
+      );
       setProject({
         userId: getUserId(),
         _id: Date.now().toString(),
@@ -144,7 +150,7 @@ function AddProject() {
         techniques: [],
         technos: [],
       });
-      alert("Félicitations 🎊🥳🎉 ! Tu viens de poster un projet !");
+
       navigate("/home");
     } else if (token) {
       addproject();
@@ -254,9 +260,9 @@ function AddProject() {
           Supprimer le Token 🪙
         </button>
       )}
-      {(fakeToken && projects.length===0)&& (
-        <button onClick={fetchProjects} >
-          Réinitialiser les projets <FaSyncAlt className="spinArrow"/>
+      {fakeToken && projects.length === 0 && (
+        <button onClick={fetchProjects}>
+          Réinitialiser les projets <FaSyncAlt className="spinArrow" />
         </button>
       )}
     </section>

@@ -1,4 +1,3 @@
-
 /* Project-image */
 @keyframes zoomInAnimation {
   from {
@@ -10,9 +9,11 @@
 }
 
 //addProject
-@keyframes rotate{
-  from{transform: rotate(0deg)}
-  to{
-    transform:rotate(360deg)
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }

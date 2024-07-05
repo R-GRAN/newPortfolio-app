@@ -10,22 +10,16 @@
   color: black;
   text-align: left;
 
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.1); // Correspond à 'shadow-xl'
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.1);
   background-color: #f7fafc;
 
   margin-top: 2rem;
   margin-bottom: 2rem;
   border-radius: 0.5rem;
- 
 
   &:hover {
     animation: zoomInAnimation 0.3s forwards;
   }
-}
-
-.light-reverse {
-  background-color: white !important;
-  flex-direction: row-reverse;
 }
 
 .project-img-container {
@@ -37,19 +31,9 @@
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.7);
 }
 
-.project-title {
-  position: absolute;
-  opacity: 0;
-  z-index: 2;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
+
+
 
 .project-img {
   position: relative;

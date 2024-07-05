@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { TokensContext } from "@/assets/utils/context/TokensContext";
 import { ProjectsContext } from "@/assets/utils/context/ProjectsContext";
 import { useNavigate } from "react-router-dom";
-import "@/components/handleProjectMenu/HandleProjectMenu.scss"
+import "@/components/handleProjectMenu/HandleProjectMenu.scss";
 
 function HandleProjectMenu({ id }) {
   const { token, fakeToken } = useContext(TokensContext);
@@ -70,6 +70,7 @@ function HandleProjectMenu({ id }) {
               } else {
                 fetchProjects();
                 alert(`Projet "${projectTitle}" supprimé`);
+                navigate("/home");
               }
             });
           } catch (error) {
