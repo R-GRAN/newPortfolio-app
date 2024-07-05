@@ -5,24 +5,28 @@ $border-color: #000300;
 $border-color-r: #000300;
 
 // Styles
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 6rem;
+header {
   position: sticky;
   top: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(to left, #434343, #000);
-  max-width: 1240px;
   z-index: 9999;
+  background: linear-gradient(to left, #434343, #000);
+}
+
+.header-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1240px;
+  height: 6rem;
+
   margin-left: auto;
   margin-right: auto;
   padding-left: 1rem;
   padding-right: 1rem;
   color: #fff;
-  .header-logo {
+  .header-nav-logo {
     filter: invert(1) brightness(2);
   }
   a {
@@ -42,7 +46,7 @@ $border-color-r: #000300;
     &.desktop-menu {
       display: none;
 
-      @media (min-width: 768px) {
+      @media (min-width: 782px) {
         display: flex;
       }
 
@@ -110,7 +114,7 @@ $border-color-r: #000300;
   .menu-icon {
     display: block;
 
-    @media (min-width: 768px) {
+    @media (min-width: 782px) {
       display: none;
     }
   }

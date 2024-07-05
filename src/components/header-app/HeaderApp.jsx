@@ -20,9 +20,12 @@ function HeaderApp({ children }) {
   }
   return (
     <>
-      <header className="header">
+      <header>
+        <div className="header-nav">
+
+       
         <Link to="/home">
-          <img src={laptop} className="header-logo" alt="Logo du portfolio" />
+          <img src={laptop} className="header-nav-logo" alt="Logo du portfolio" />
         </Link>
         <nav>
           <ul className="desktop-menu">
@@ -157,6 +160,7 @@ function HeaderApp({ children }) {
             </Link>
           </li>
         </ul>
+        </div>
       </header>
       <main>{children}</main>
     </>
