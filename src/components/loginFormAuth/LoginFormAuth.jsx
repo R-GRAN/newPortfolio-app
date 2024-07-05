@@ -64,6 +64,7 @@ function FormAuth() {
       >
         {!token && (
           <>
+            <h3>Identifiez vous en tant qu&apos;administrateur</h3>
             <label htmlFor="email">Email</label>
             <input
               type="email"
@@ -90,19 +91,30 @@ function FormAuth() {
 
         {(fakeToken || token) && (
           <>
-            <hr className="bar"/>
+            <hr className="bar" />
             <Link
               to={"/"}
               onClick={(evt) => {
                 evt.preventDefault();
+
                 if (token) {
                   sessionStorage.removeItem("token");
                   setToken(null);
                   alert("Déconnexion réussie, à bientôt !");
-                } else {
-                  sessionStorage.removeItem("fakeToken");
-                  setFakeToken(null);
-                  alert("Vous avez quitté le mode invité ! Merci et à bientôt !");
+                } else if (fakeToken) {
+                  if (
+                    confirm(
+                      "Êtes vous sûr de vouloir quitter le mode invité ? Cliquez sur Ok pour confirmer."
+                    )
+                  ) {
+                    sessionStorage.removeItem("fakeToken");
+                    setFakeToken(null);
+                    alert(
+                      "Vous avez quitté le mode invité ! Merci et à bientôt !"
+                    );navigate("/home");
+                    return
+                  }
+                  alert("Continuez à explorer l'appli à votre guise !");
                 }
 
                 navigate("/home");

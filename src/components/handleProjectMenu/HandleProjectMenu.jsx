@@ -29,8 +29,6 @@ function HandleProjectMenu({ id }) {
       // Créer une copie des projets
       const updatedProjects = [...projects];
 
-      console.log(updatedProjects[0]);
-
       // Trouver l'index grace à l'ID
       const index = updatedProjects.findIndex((project) => project._id === id);
 

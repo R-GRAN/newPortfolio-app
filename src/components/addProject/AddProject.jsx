@@ -108,7 +108,7 @@ function AddProject() {
       );
       navigate("/home");
     } else {
-      alert("Prenez votre temps et vous pouvez continuer sereinement");
+      alert("Vous pouvez continuer sereinement");
     }
   }
 
