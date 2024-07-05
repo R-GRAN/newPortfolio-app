@@ -4,7 +4,7 @@ import "@/components/fakeTokenForm/FakeTokenForm.scss";
 import { useNavigate } from "react-router-dom";
 
 function FakeTokenForm() {
-  const { fakeToken, setFakeToken } = useContext(TokensContext);
+  const { token, fakeToken, setFakeToken } = useContext(TokensContext);
   const [identifiant, setIdentifiant] = useState("azerty");
   const [password, setPassword] = useState("password1234");
   const navigate = useNavigate();
@@ -12,15 +12,14 @@ function FakeTokenForm() {
   function handleSubmit(evt) {
     evt.preventDefault();
     if (identifiant === "azerty" && password === "password1234") {
-      if (!fakeToken) {
+      if (token) alert("Ne soyez pas gourmand, un Token 🪙 à la fois ");
+      else if (!fakeToken) {
         alert(
           "Vous venez d'être gratifié d'un Token 🪙 dans votre session storage, profitez en !"
         );
         sessionStorage.setItem("fakeToken", "🪙");
         setFakeToken(sessionStorage.getItem("fakeToken"));
         navigate("/home");
-      } else {
-        alert("Ne soyez pas gourmand, un Token 🪙 à la fois ");
       }
     } else {
       alert("Tout est déjà rempli, il faut juste vous identifier ! 💻");
