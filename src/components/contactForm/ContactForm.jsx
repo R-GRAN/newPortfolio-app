@@ -16,9 +16,11 @@ function ContactForm() {
       .then(
         () => {
           formRef.current.reset();
+          alert("Votre message a été envoyé avec succès !")
           console.log("SUCCESS!");
         },
         (error) => {
+          alert("Une erreur s'est produite, veuillez essayer sur un autre navigateur ou support.")
           console.log("FAILED...", error.text);
         }
       );
