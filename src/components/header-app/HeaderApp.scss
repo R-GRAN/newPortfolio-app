@@ -1,8 +1,8 @@
 // Variables
 $primary-color: #00df9a;
 $background-color: #000300;
-$border-color: #000300 ;
-$border-color-r:  #000300;
+$border-color: #000300;
+$border-color-r: #000300;
 
 // Styles
 .header {
@@ -77,6 +77,14 @@ $border-color-r:  #000300;
 
       &.open {
         left: 0;
+        .bottom-nav {
+          position: absolute;
+          bottom: 30px;
+          .bottom-nav-icon {
+            position: absolute;
+            margin-left: 10px;
+          }
+        }
       }
 
       h1 {

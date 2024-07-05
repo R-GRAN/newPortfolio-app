@@ -151,11 +151,10 @@ function HeaderApp({ children }) {
               {token || fakeToken ? "Se déconnecter" : "Se connecter"}
             </NavLink>
           </li>
-          <li>
-            <button onClick={() => setNav(false)}>
-              {" "}
-              Quitter le menu <ImExit size={20} />{" "}
-            </button>
+          <li className="bottom-nav">
+            <Link to={"/"} >
+              Quitter l&apos;app <ImExit size={25} className="bottom-nav-icon"/>
+            </Link>
           </li>
         </ul>
       </header>
