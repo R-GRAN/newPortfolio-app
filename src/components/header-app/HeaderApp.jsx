@@ -155,7 +155,7 @@ function HeaderApp({ children }) {
             </NavLink>
           </li>
           <li className="bottom-nav">
-            <Link to={"/"} >
+            <Link to={"/"} onClick={handleNav}>
               Quitter l&apos;app <ImExit size={25} className="bottom-nav-icon"/>
             </Link>
           </li>

@@ -78,17 +78,17 @@ header {
       border-right: 1px solid $border-color-r;
       background-color: $background-color;
       transition: left 0.5s ease-in-out;
+      .bottom-nav {
+        position: absolute;
+        bottom: 30px;
+        .bottom-nav-icon {
+          position: absolute;
+          margin-left: 10px;
+        }
+      }
 
       &.open {
         left: 0;
-        .bottom-nav {
-          position: absolute;
-          bottom: 30px;
-          .bottom-nav-icon {
-            position: absolute;
-            margin-left: 10px;
-          }
-        }
       }
 
       h1 {
