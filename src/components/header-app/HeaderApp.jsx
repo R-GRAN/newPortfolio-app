@@ -133,7 +133,7 @@ function HeaderApp({ children }) {
               className={({ isActive }) => (isActive ? "active" : "")}
               onClick={handleNav}
             >
-              Jouer avec l&apos;appli
+              Gérer les projets
             </NavLink>
           </li>
           <li>

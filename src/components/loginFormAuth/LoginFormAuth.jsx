@@ -85,7 +85,7 @@ function FormAuth() {
               onChange={(evt) => setPassword(evt.target.value)}
               required
             />
-            <input type="submit" value="connexion" />
+            <button>Connexion</button>
           </>
         )}
 
@@ -111,8 +111,9 @@ function FormAuth() {
                     setFakeToken(null);
                     alert(
                       "Vous avez quitté le mode invité ! Merci et à bientôt !"
-                    );navigate("/home");
-                    return
+                    );
+                    navigate("/home");
+                    return;
                   }
                   alert("Continuez à explorer l'appli à votre guise !");
                 }
