@@ -40,7 +40,7 @@ function HeaderApp({ children }) {
 
             <li>
               <NavLink
-                to={"/project"}
+                to={"/projects"}
                 className={({ isActive }) => (isActive ? "active" : "")}
               >
                 Projets
@@ -110,7 +110,7 @@ function HeaderApp({ children }) {
 
           <li>
             <NavLink
-              to={"/project"}
+              to={"/projects"}
               className={({ isActive }) => (isActive ? "active" : "")}
               onClick={handleNav}
             >
@@ -129,7 +129,7 @@ function HeaderApp({ children }) {
           </li>
           <li>
             <NavLink
-              to={"/project/add"}
+              to={"/projects/add"}
               className={({ isActive }) => (isActive ? "active" : "")}
               onClick={handleNav}
             >

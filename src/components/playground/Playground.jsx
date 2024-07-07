@@ -15,12 +15,12 @@ function Playground() {
               avec, tout se passe en local.
             </p>
             <p className="description">
-              Connectez vous et ajoutez ou supprimer des projets !
+              Connectez vous et ajoutez ou supprimez des projets !
             </p>
             <p className="description">
               AUCUNE INSCRIPTION NECESSAIRE, AUCUNE DONNÉE ENREGISTRÉE.
             </p>
-            <Link to="/project/add">
+            <Link to="/fakeTokenForm">
               <button className="cta-button">Gérer les projets</button>
             </Link>
           </div>

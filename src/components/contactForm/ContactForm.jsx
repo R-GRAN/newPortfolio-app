@@ -29,8 +29,7 @@ function ContactForm() {
     <section className="contact" id="contact">
       <h3> Besoin de me contacter ?</h3>
       <h4 className="contact-text">
-        Vous pouvez me joindre en remplissant ce formulaire ci-dessous ou par
-        email en cliquant sur le lien un peu plus bas.
+        Vous pouvez me joindre en remplissant ce formulaire ci-dessous.
       </h4>
       <div className="form-container">
         <form

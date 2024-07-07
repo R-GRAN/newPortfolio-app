@@ -61,6 +61,7 @@ a,
 p,
 label {
   font-size: 21px;
+  line-height: 1.3em;
 }
 
 button,
@@ -111,9 +112,9 @@ input[type="button"] {
 
   h3 {
     padding-block: 10px;
-    font-size: 1.8rem;
+    /* font-size: 1.8rem; */
   }
-  h4 {
+/*   h4 {
     font-size: 1.4rem;
   }
   h5 {
@@ -123,5 +124,5 @@ input[type="button"] {
   p,
   label {
     font-size: 21px;
-  }
+  } */
 }
