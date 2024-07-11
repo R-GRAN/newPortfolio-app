@@ -1,0 +1,22 @@
+.card-item{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 1px solid rgba(128, 128, 128, 0.529);
+    border-radius: 5px;
+    aspect-ratio: 1/1;
+    background-color: white;
+    color: black;
+    margin: 20px;
+   
+    .card-item-icon{
+        width: 35%;
+        height: 35%;
+    }
+    @media (max-width: 640px) {
+       margin: 10px;
+      }
+
+  
+}
