@@ -53,10 +53,16 @@ header {
       li {
         list-style: none;
         padding: 1rem;
+        transition: all;
+        transition-duration: 0.5s;
+       
         a {
           text-decoration: none;
           padding: 1em;
-          border-radius: 8px;
+          border-radius: 8px; 
+          &:hover{
+          background-color: #00ffae62;
+        }
         }
         .active {
           color: #000000 !important;

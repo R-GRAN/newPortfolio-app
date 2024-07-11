@@ -150,8 +150,7 @@ function AddProject() {
         techniques: [],
         technos: [],
       });
-
-      navigate("/home");
+      navigate(`/projects/${project._id}`);
     } else if (token) {
       addproject();
     }
