@@ -67,6 +67,9 @@ header {
         .active {
           color: #000000 !important;
           background-color: #05DF9A;
+          &:hover{
+            background-color: #00c586;
+          }
         }
         .connected {
           color: #00df9a;

@@ -7,13 +7,19 @@ import {
   FaGitAlt,
   FaGithub,
   FaCcStripe,
+  FaLaptopCode,
 } from "react-icons/fa";
 import {
+  SiAxios,
   SiMongodb,
   SiTypescript,
   SiPostman,
   SiPayhip,
   SiJsonwebtokens,
+  SiVercel,
+  SiRapid,
+  SiMamp,
+  SiJavascript,
 } from "react-icons/si";
 import SkillItem from "@/components/skillsItem/SkillItem";
 import "@/components/skills/Skills.scss";
@@ -42,6 +48,11 @@ function Skills() {
       color: "",
     },
     { name: "Stripe", icon: FaCcStripe, type: "tools", color: "#7883E6" },
+    { name: "Vercel", icon: SiVercel, type: "tools", color: "" },
+    { name: "Rapid", icon: SiRapid, type: "back", color: "#0057DB" },
+    { name: "MAMP", icon: SiMamp, type: "tools", color: "#2169A0" },
+    { name: "JavaScript", icon: SiJavascript, type: "tools", color: "#ffe300" },
+    { name: "Axios", icon: SiAxios, type: "tools", color: "#681DE0" },
   ];
 
   const sortedSkills = [...skills].sort((a, b) => a.name.localeCompare(b.name));
@@ -57,18 +68,29 @@ function Skills() {
     const target = evt.target.value.trim().toLowerCase();
     if (target.length < 3) {
       setFiltred(sortedSkills);
-    } else if (target.length >= 3) {
-      setFiltred(
-        sortedSkills.filter((skill) =>
-          skill.name.toLowerCase().includes(target)
-        )
+    } else {
+      const filtredSkills = sortedSkills.filter((skill) =>
+        skill.name.toLowerCase().includes(target)
       );
+      if (filtredSkills.length === 0) {
+        setFiltred([
+          {
+            name: "Je suis déjà parti l'apprendre !",
+            icon: FaLaptopCode,
+            type: "tools",
+            color: "",
+          },
+        ]);
+      } else {
+        setFiltred(filtredSkills);
+      }
     }
   }
 
   return (
     <section>
       <h3>Technologies</h3>
+
       <div>
         <label htmlFor="search"></label>
         <input
@@ -78,6 +100,10 @@ function Skills() {
           onChange={(evt) => searchSkills(evt)}
         />
       </div>
+      <p className="techno-indicator">
+        {filtred.length} {filtred.length === 1 ? "affichée" : "affichées"} et
+        plus encore à découvrir !
+      </p>
       <div className="buttons-bar">
         <button onClick={() => filtredSkills("all")}>Tous</button>
         <button onClick={() => filtredSkills("tools")}>Outils</button>
