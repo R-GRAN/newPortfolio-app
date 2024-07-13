@@ -8,6 +8,7 @@ import {
   FaGithub,
   FaCcStripe,
   FaLaptopCode,
+  FaSass,
 } from "react-icons/fa";
 import {
   SiAxios,
@@ -20,6 +21,8 @@ import {
   SiRapid,
   SiMamp,
   SiJavascript,
+  SiTailwindcss,
+  SiJest,
 } from "react-icons/si";
 import SkillItem from "@/components/skillsItem/SkillItem";
 import "@/components/skills/Skills.scss";
@@ -37,7 +40,7 @@ function Skills() {
       type: "tools",
       color: "#fd9304",
     },
-    { name: "Figma ", icon: FaFigma, type: "tools", color: "purple" },
+    { name: "Figma ", icon: FaFigma, type: "tools", color: "" },
     { name: "Git", icon: FaGitAlt, type: "tools", color: "#F34F29" },
     { name: "GitHub", icon: FaGithub, type: "tools", color: "" },
     { name: "Payhip", icon: SiPayhip, type: "tools", color: "#7883E6" },
@@ -53,6 +56,9 @@ function Skills() {
     { name: "MAMP", icon: SiMamp, type: "tools", color: "#2169A0" },
     { name: "JavaScript", icon: SiJavascript, type: "tools", color: "#ffe300" },
     { name: "Axios", icon: SiAxios, type: "tools", color: "#681DE0" },
+    { name: "Tailwind", icon: SiTailwindcss, type: "front", color: "#37BDF9" },
+    { name: "Sass", icon: FaSass, type: "front", color: "#EC8DB9" },
+    { name: "Jest", icon: SiJest, type: "tools", color: "#B63A10" },
   ];
 
   const sortedSkills = [...skills].sort((a, b) => a.name.localeCompare(b.name));

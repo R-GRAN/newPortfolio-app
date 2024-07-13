@@ -36,7 +36,7 @@ function HandleProjectMenu({ id }) {
 
       const projectTitle = updatedProjects[index].title;
       const check = prompt(
-        `Vous êtes sur le point de supprimer le projet "${projectTitle}". Pour continuer, tape : Delete .`
+        `Vous êtes sur le point de supprimer le projet "${projectTitle}". Pour continuer, tapez : Delete .`
       );
 
       if (check === "Delete") {
