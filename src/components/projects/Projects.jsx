@@ -6,14 +6,8 @@ import { ProjectsContext } from "@/assets/utils/context/ProjectsContext.jsx";
 import { TokensContext } from "@/assets/utils/context/TokensContext.jsx";
 
 function Projets() {
-  const { projects, setProjects } = useContext(ProjectsContext);
+  const { projects, setProject } = useContext(ProjectsContext);
   const { token, fakeToken } = useContext(TokensContext);
-
-
-
-  function handleAddProject(project) {
-    setProjects([...projects, project]);
-  }
 
   return (
     <>
@@ -24,15 +18,15 @@ function Projets() {
           <p>Il faudrait penser à alimenter ce portfolio !</p>
         )}
         {projects.map((project) => (
-          <Link key={project._id} to={"/projects/" + project._id}>
-            <Project
-              project={project}
-            />
+          <Link
+            key={project._id}
+            to={"/projects/" + project._id}
+            onClick={() => setProject(project)}
+          >
+            <Project project={project} />
           </Link>
         ))}
-        {(fakeToken || token) && (
-          <AddProject handleAddProject={handleAddProject} />
-        )}
+        {(fakeToken || token) && <AddProject />}
       </section>
     </>
   );

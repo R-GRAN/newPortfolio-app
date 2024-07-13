@@ -13,13 +13,12 @@ function SingleProject() {
   const { projects } = useContext(ProjectsContext);
 
   let foundProject = projects.find((project) => project._id === id);
-
   return (
     <section>
       <Project project={foundProject} />
       {(token || fakeToken) && (
         <>
-          <HandleProjectMenu id={id} /> 
+          <HandleProjectMenu id={id} />
           <AddProject />
         </>
       )}

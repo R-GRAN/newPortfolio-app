@@ -9,26 +9,11 @@ function AddProject() {
   const formRef = useRef(null);
   const [file, setFile] = useState(null);
   const { token, fakeToken, setFakeToken } = useContext(TokensContext);
-  const { projects, setProjects } = useContext(ProjectsContext);
+  const { projects, setProjects, project, setProject } =
+    useContext(ProjectsContext);
   const navigate = useNavigate();
   const { id } = useParams();
 
-  const [project, setProject] = useState({
-    userId: getUserId(),
-    _id: Date.now().toString(),
-    title: "Un tout nouveau projet",
-    category: "Front end",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga repellat unde doloribus placeat maxime debitis doloremque repudiandae veritatis ratione blanditiis porro enim voluptates commodi explicabo pariatur, dolorum vitae, laborum eveniet?",
-    imageUrl: "",
-    githubUrl: "https://github.com/R-GRAN/",
-    techniques: [
-      "Réaliser le découpage sur une maquette figma",
-      "Déployer un site web",
-      "Utiliser les design Pattern",
-    ],
-    technos: ["React", "MongoDB", "Sass", "HTML", "CSS", "Figma"],
-  });
   function getUserId() {
     if (token != null) {
       const parsedToken = JSON.parse(token);
@@ -140,17 +125,6 @@ function AddProject() {
       alert(
         `Félicitations ! Vous venez de de poster le projet "${project.title}" !`
       );
-      setProject({
-        userId: getUserId(),
-        _id: Date.now().toString(),
-        title: "",
-        category: "",
-        description: "",
-        imageUrl: "",
-        githubUrl: "https://github.com/R-GRAN/",
-        techniques: [],
-        technos: [],
-      });
       navigate(`/projects/${project._id}`);
     } else if (token) {
       addproject();
@@ -176,17 +150,7 @@ function AddProject() {
         };
         setProjects(shallowProjects);
         alert("Projet modifié avec succès");
-        setProject({
-          userId: getUserId(),
-          _id: Date.now().toString(),
-          title: "",
-          category: "",
-          description: "",
-          imageUrl: "",
-          githubUrl: "https://github.com/R-GRAN/",
-          techniques: [],
-          technos: [],
-        });
+        setProject(shallowProjects[foundIndexProject]);
         return;
       } else {
         alert("La demande de modification a été annulée");
@@ -213,7 +177,7 @@ function AddProject() {
         }}
       >
         <div className="addProject-project-form-block">
-          <label htmlFor="title">Title</label>
+          <label htmlFor="title">Nom du projet</label>
           <input
             type="text"
             name="title"
@@ -224,7 +188,7 @@ function AddProject() {
             onChange={(evt) => handleChange(evt)}
           />
 
-          <label htmlFor="category">Categories</label>
+          <label htmlFor="category">Catégorie</label>
           <select
             name="category"
             id="category"
@@ -246,12 +210,13 @@ function AddProject() {
             cols="30"
             rows="10"
             placeholder="Description du projet"
+            maxLength={380}
             required
             onChange={(evt) => handleChange(evt)}
           ></textarea>
         </div>
         <div className="addProject-project-form-image">
-          <label htmlFor="imageUrl">ImageUrl</label>
+          <label htmlFor="imageUrl">Image</label>
           <input
             className="inputFiles"
             type="file"
@@ -262,7 +227,7 @@ function AddProject() {
             onChange={(evt) => handleChangeImg(evt)}
           />
 
-          <label htmlFor="githubUrl">GithubUrl</label>
+          <label htmlFor="githubUrl">Lien Github</label>
           <input
             type="text"
             name="githubUrl"
@@ -272,7 +237,7 @@ function AddProject() {
             required
             onChange={(evt) => handleChange(evt)}
           />
-          <label htmlFor="techniques">Techniques</label>
+          <label htmlFor="techniques">Techniques développées</label>
           <input
             type="text"
             name="techniques"
@@ -281,7 +246,7 @@ function AddProject() {
             placeholder="Format : Réaliser le découpage d'une maquette - Intégrer une librairie externe - Mettre en œuvre des opérations CRUD"
             onChange={(evt) => handleChangeIntoArray(evt)}
           />
-          <label htmlFor="technos">Technos</label>
+          <label htmlFor="technos">Technos utillisées</label>
           <input
             type="text"
             name="technos"
