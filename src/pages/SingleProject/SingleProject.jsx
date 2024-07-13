@@ -5,6 +5,7 @@ import { ProjectsContext } from "@/assets/utils/context/ProjectsContext";
 import HandleProjectMenu from "@/components/handleProjectMenu/HandleProjectMenu";
 import "@/components/project/Project.scss";
 import Project from "@/components/project/Project";
+import AddProject from "@/components/addProject/AddProject.jsx";
 
 function SingleProject() {
   const { id } = useParams();
@@ -12,11 +13,15 @@ function SingleProject() {
   const { projects } = useContext(ProjectsContext);
 
   let foundProject = projects.find((project) => project._id === id);
-
   return (
     <section>
       <Project project={foundProject} />
-      {(token || fakeToken) && <HandleProjectMenu id={id} />}
+      {(token || fakeToken) && (
+        <>
+          <HandleProjectMenu id={id} />
+          <AddProject />
+        </>
+      )}
     </section>
   );
 }

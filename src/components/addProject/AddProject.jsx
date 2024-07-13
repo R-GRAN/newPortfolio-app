@@ -2,32 +2,18 @@ import { useState, useRef, useContext } from "react";
 import { TokensContext } from "@/assets/utils/context/TokensContext";
 import { ProjectsContext } from "@/assets/utils/context/ProjectsContext";
 import "@/components/addProject/AddProject.scss";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { FaSyncAlt } from "react-icons/fa";
 
 function AddProject() {
   const formRef = useRef(null);
   const [file, setFile] = useState(null);
   const { token, fakeToken, setFakeToken } = useContext(TokensContext);
-  const { projects, setProjects } = useContext(ProjectsContext);
+  const { projects, setProjects, project, setProject } =
+    useContext(ProjectsContext);
   const navigate = useNavigate();
+  const { id } = useParams();
 
-  const [project, setProject] = useState({
-    userId: getUserId(),
-    _id: Date.now().toString(),
-    title: "Un tout nouveau projet",
-    category: "Front end",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga repellat unde doloribus placeat maxime debitis doloremque repudiandae veritatis ratione blanditiis porro enim voluptates commodi explicabo pariatur, dolorum vitae, laborum eveniet?",
-    imageUrl: "",
-    githubUrl: "https://github.com/R-GRAN/",
-    techniques: [
-      "Réaliser le découpage sur une maquette figma",
-      "Déployer un site web",
-      "Utiliser les design Pattern",
-    ],
-    technos: ["React", "MongoDB", "Sass", "HTML", "CSS", "Figma"],
-  });
   function getUserId() {
     if (token != null) {
       const parsedToken = JSON.parse(token);
@@ -129,7 +115,7 @@ function AddProject() {
     setProject({ ...project, [name]: array });
   }
 
-  async function handleSubmit(evt) {
+  async function handleSubmitAddProject(evt) {
     evt.preventDefault();
 
     formRef.current.reset();
@@ -139,21 +125,39 @@ function AddProject() {
       alert(
         `Félicitations ! Vous venez de de poster le projet "${project.title}" !`
       );
-      setProject({
-        userId: getUserId(),
-        _id: Date.now().toString(),
-        title: "",
-        category: "",
-        description: "",
-        imageUrl: "",
-        githubUrl: "https://github.com/R-GRAN/",
-        techniques: [],
-        technos: [],
-      });
       navigate(`/projects/${project._id}`);
     } else if (token) {
       addproject();
     }
+  }
+
+  function handleSubmitUpdate(evt) {
+    evt.preventDefault();
+
+    if (fakeToken) {
+      const foundIndexProject = projects.findIndex(
+        (project) => project._id === id
+      );
+      const shallowProjects = [...projects];
+      if (
+        confirm(
+          `Vous êtes sur le point de modifier le projet "${shallowProjects[foundIndexProject].title}". Pour continuer, cliquez sur "OK" ?`
+        )
+      ) {
+        shallowProjects[foundIndexProject] = {
+          ...project,
+          _id: shallowProjects[foundIndexProject]._id,
+        };
+        setProjects(shallowProjects);
+        alert("Projet modifié avec succès");
+        setProject(shallowProjects[foundIndexProject]);
+        return;
+      } else {
+        alert("La demande de modification a été annulée");
+        return;
+      }
+    }
+    alert("Not yet");
   }
 
   return (
@@ -166,11 +170,14 @@ function AddProject() {
         action=""
         method="get"
         onSubmit={(evt) => {
-          handleSubmit(evt);
+          if (id == null) handleSubmitAddProject(evt);
+          else {
+            handleSubmitUpdate(evt);
+          }
         }}
       >
         <div className="addProject-project-form-block">
-          <label htmlFor="title">Title</label>
+          <label htmlFor="title">Nom du projet</label>
           <input
             type="text"
             name="title"
@@ -181,7 +188,7 @@ function AddProject() {
             onChange={(evt) => handleChange(evt)}
           />
 
-          <label htmlFor="category">Categories</label>
+          <label htmlFor="category">Catégorie</label>
           <select
             name="category"
             id="category"
@@ -203,12 +210,13 @@ function AddProject() {
             cols="30"
             rows="10"
             placeholder="Description du projet"
+            maxLength={380}
             required
             onChange={(evt) => handleChange(evt)}
           ></textarea>
         </div>
         <div className="addProject-project-form-image">
-          <label htmlFor="imageUrl">ImageUrl</label>
+          <label htmlFor="imageUrl">Image</label>
           <input
             className="inputFiles"
             type="file"
@@ -219,7 +227,7 @@ function AddProject() {
             onChange={(evt) => handleChangeImg(evt)}
           />
 
-          <label htmlFor="githubUrl">GithubUrl</label>
+          <label htmlFor="githubUrl">Lien Github</label>
           <input
             type="text"
             name="githubUrl"
@@ -229,7 +237,7 @@ function AddProject() {
             required
             onChange={(evt) => handleChange(evt)}
           />
-          <label htmlFor="techniques">Techniques</label>
+          <label htmlFor="techniques">Techniques développées</label>
           <input
             type="text"
             name="techniques"
@@ -238,7 +246,7 @@ function AddProject() {
             placeholder="Format : Réaliser le découpage d'une maquette - Intégrer une librairie externe - Mettre en œuvre des opérations CRUD"
             onChange={(evt) => handleChangeIntoArray(evt)}
           />
-          <label htmlFor="technos">Technos</label>
+          <label htmlFor="technos">Technos utillisées</label>
           <input
             type="text"
             name="technos"
@@ -247,11 +255,19 @@ function AddProject() {
             placeholder="Format : React - Yarn - MongoDB"
             onChange={(evt) => handleChangeIntoArray(evt)}
           />
-          <input
-            type="submit"
-            value="Ajouter un projet"
-            className="btn-class green"
-          />
+          {id === null || id === undefined ? (
+            <input
+              type="submit"
+              value="Ajouter un projet"
+              className="btn-class green"
+            />
+          ) : (
+            <input
+              type="submit"
+              value="Modifier un projet"
+              className="btn-class biolet"
+            />
+          )}
         </div>
       </form>
       {fakeToken && (

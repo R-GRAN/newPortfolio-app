@@ -73,6 +73,9 @@ header {
         }
         .connected {
           color: #00df9a;
+          &:hover{
+            color: #000000;
+          }
         }
       }
     }
