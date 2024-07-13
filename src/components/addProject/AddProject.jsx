@@ -2,7 +2,7 @@ import { useState, useRef, useContext } from "react";
 import { TokensContext } from "@/assets/utils/context/TokensContext";
 import { ProjectsContext } from "@/assets/utils/context/ProjectsContext";
 import "@/components/addProject/AddProject.scss";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { FaSyncAlt } from "react-icons/fa";
 
 function AddProject() {
@@ -11,6 +11,7 @@ function AddProject() {
   const { token, fakeToken, setFakeToken } = useContext(TokensContext);
   const { projects, setProjects } = useContext(ProjectsContext);
   const navigate = useNavigate();
+  const { id } = useParams();
 
   const [project, setProject] = useState({
     userId: getUserId(),
@@ -129,7 +130,7 @@ function AddProject() {
     setProject({ ...project, [name]: array });
   }
 
-  async function handleSubmit(evt) {
+  async function handleSubmitAddProject(evt) {
     evt.preventDefault();
 
     formRef.current.reset();
@@ -156,6 +157,45 @@ function AddProject() {
     }
   }
 
+  function handleSubmitUpdate(evt) {
+    evt.preventDefault();
+
+    if (fakeToken) {
+      const foundIndexProject = projects.findIndex(
+        (project) => project._id === id
+      );
+      const shallowProjects = [...projects];
+      if (
+        confirm(
+          `Vous êtes sur le point de modifier le projet "${shallowProjects[foundIndexProject].title}". Pour continuer, cliquez sur "OK" ?`
+        )
+      ) {
+        shallowProjects[foundIndexProject] = {
+          ...project,
+          _id: shallowProjects[foundIndexProject]._id,
+        };
+        setProjects(shallowProjects);
+        alert("Projet modifié avec succès");
+        setProject({
+          userId: getUserId(),
+          _id: Date.now().toString(),
+          title: "",
+          category: "",
+          description: "",
+          imageUrl: "",
+          githubUrl: "https://github.com/R-GRAN/",
+          techniques: [],
+          technos: [],
+        });
+        return;
+      } else {
+        alert("La demande de modification a été annulée");
+        return;
+      }
+    }
+    alert("Not yet");
+  }
+
   return (
     <section className="addProject">
       <h3>Remplir le formulaire </h3>
@@ -166,7 +206,10 @@ function AddProject() {
         action=""
         method="get"
         onSubmit={(evt) => {
-          handleSubmit(evt);
+          if (id == null) handleSubmitAddProject(evt);
+          else {
+            handleSubmitUpdate(evt);
+          }
         }}
       >
         <div className="addProject-project-form-block">
@@ -247,11 +290,19 @@ function AddProject() {
             placeholder="Format : React - Yarn - MongoDB"
             onChange={(evt) => handleChangeIntoArray(evt)}
           />
-          <input
-            type="submit"
-            value="Ajouter un projet"
-            className="btn-class green"
-          />
+          {id === null || id === undefined ? (
+            <input
+              type="submit"
+              value="Ajouter un projet"
+              className="btn-class green"
+            />
+          ) : (
+            <input
+              type="submit"
+              value="Modifier un projet"
+              className="btn-class biolet"
+            />
+          )}
         </div>
       </form>
       {fakeToken && (
