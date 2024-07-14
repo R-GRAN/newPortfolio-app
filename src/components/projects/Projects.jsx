@@ -12,7 +12,7 @@ function Projets() {
   return (
     <>
       <section className="portfolio" id="portfolio">
-        <h3>Mes réalisations</h3>
+        <h2>Mes réalisations</h2>
         {projects.length === 0 && token && <p>Va bosser mon grand !</p>}
         {projects.length === 0 && (
           <p>Il faudrait penser à alimenter ce portfolio !</p>

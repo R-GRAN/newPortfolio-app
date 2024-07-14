@@ -95,7 +95,7 @@ function Skills() {
 
   return (
     <section>
-      <h3>Technologies</h3>
+      <h2>Technologies</h2>
 
       <div>
         <label htmlFor="search"></label>

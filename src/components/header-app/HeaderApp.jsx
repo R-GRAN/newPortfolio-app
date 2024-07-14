@@ -94,7 +94,7 @@ function HeaderApp({ children }) {
               ) : token ? (
                 <BsPersonFillCheck size={25} className="connected" />
               ) : (
-                ""
+                <></>
               )}
             </span>
           </div>

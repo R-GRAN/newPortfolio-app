@@ -162,7 +162,7 @@ function AddProject() {
 
   return (
     <section className="addProject">
-      <h3>Remplir le formulaire </h3>
+      <h2>Remplir le formulaire </h2>
       <form
         ref={formRef}
         id="addProject-project-form"
@@ -182,7 +182,7 @@ function AddProject() {
             type="text"
             name="title"
             id="title"
-            value={project.title}
+            value={project.title.trim()}
             placeholder="Ex : Un nouveau projet"
             required
             onChange={(evt) => handleChange(evt)}
@@ -206,7 +206,7 @@ function AddProject() {
           <textarea
             name="description"
             id="description"
-            value={project.description}
+            value={project.description.trim()}
             cols="30"
             rows="10"
             placeholder="Description du projet"
@@ -232,7 +232,7 @@ function AddProject() {
             type="text"
             name="githubUrl"
             id="githubUrl"
-            value={project.githubUrl}
+            value={project.githubUrl.trim()}
             placeholder="https://github.com/R-GRAN/"
             required
             onChange={(evt) => handleChange(evt)}
@@ -275,8 +275,13 @@ function AddProject() {
           Supprimer le Token 🪙
         </button>
       )}
-      {fakeToken && projects.length === 0 && (
-        <button onClick={fetchProjects}>
+      {fakeToken && (
+        <button
+          onClick={() => {
+            fetchProjects();
+            navigate("/home");
+          }}
+        >
           Réinitialiser les projets <FaSyncAlt className="spinArrow" />
         </button>
       )}

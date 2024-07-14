@@ -61,8 +61,6 @@
 @media screen and (min-width: 451px) and (max-width: 780px) {
   .project {
     flex-direction: column;
-
-    gap: 25px;
   }
   .project-block {
     width: 100%;
@@ -77,8 +75,6 @@
 @media screen and (max-width: 450px) {
   .project {
     flex-direction: column;
-
-    gap: 15px;
     padding: 1.5rem;
   }
   .project-block {

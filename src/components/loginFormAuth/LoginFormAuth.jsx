@@ -64,7 +64,7 @@ function FormAuth() {
       >
         {!token && (
           <>
-            <h3>Identifiez vous en tant qu&apos;administrateur</h3>
+            <h2>Identifiez vous en tant qu&apos;administrateur</h2>
             <label htmlFor="email">Email</label>
             <input
               type="email"

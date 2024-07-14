@@ -36,7 +36,7 @@ function FakeTokenForm() {
         className="addProject-login-form"
         onSubmit={(evt) => handleSubmit(evt)}
       >
-        <h3>Gerer les projets</h3>
+        <h2>Gerer les projets</h2>
         <label htmlFor="identifiant">Identifiant</label>
         <input
           type="text"

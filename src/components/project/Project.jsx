@@ -11,8 +11,8 @@ function Project({ project }) {
         />
       </div>
       <div className="project-block">
-        <h4>{project.title}</h4>
-        <h5>{project.category}</h5>
+        <h3>{project.title}</h3>
+        <h4>{project.category}</h4>
 
         <p>{project.description}</p>
       </div>

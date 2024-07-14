@@ -7,7 +7,7 @@ function SkillItem({item}) {
   
        <item.icon className="card-item-icon" color={item.color} /> 
 
-      <h2>{item.name}</h2>
+      <span>{item.name}</span>
     </article>
   );
 }

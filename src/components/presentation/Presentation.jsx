@@ -4,7 +4,7 @@ import "./Presentation.scss";
 function Presentation() {
   return (
     <div className="presentation-div">
-        <h3 >Présentation</h3>
+        <h2 >Présentation</h2>
       <div className="presentation-details">
         <img
           className="presentation-img"

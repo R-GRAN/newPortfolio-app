@@ -17,10 +17,10 @@ input[type="search"] {
 .items-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  @media (max-width: 450px) {
+  @media (max-width: 515px) {
     grid-template-columns: 1fr;
   }
-  @media(min-width: 450px) and (max-width: 650px) {
+  @media(min-width: 515px) and (max-width: 781px) {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }

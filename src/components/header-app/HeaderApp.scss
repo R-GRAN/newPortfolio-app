@@ -45,35 +45,48 @@ header {
   ul {
     &.desktop-menu {
       display: none;
-
-      @media (min-width: 782px) {
+      @media (max-width: 660px) and (min-width: 760px) {
+        li {
+          padding: 0.2rem;
+          a {
+            padding: 0.56em;
+          }
+        }
+      }
+      @media (min-width: 660px) {
         display: flex;
       }
 
       li {
         list-style: none;
-        padding: 1rem;
+        padding: 1.2rem;
         transition: all;
         transition-duration: 0.5s;
-       
+        @media (max-width: 780px) {
+          padding: 0.2rem;
+        }
+
         a {
           text-decoration: none;
           padding: 1em;
-          border-radius: 8px; 
-          &:hover{
-          background-color: #00ffae62;
-        }
+          border-radius: 8px;
+          @media (max-width: 780px) {
+            padding: 0.5em;
+          }
+          &:hover {
+            background-color: #00ffae62;
+          }
         }
         .active {
           color: #000000 !important;
-          background-color: #05DF9A;
-          &:hover{
+          background-color: #05df9a;
+          &:hover {
             background-color: #00c586;
           }
         }
         .connected {
           color: #00df9a;
-          &:hover{
+          &:hover {
             color: #000000;
           }
         }
@@ -118,7 +131,6 @@ header {
 
       li {
         padding: 1rem;
-        border-bottom: 1px solid $border-color;
       }
     }
   }
@@ -126,7 +138,7 @@ header {
   .menu-icon {
     display: block;
 
-    @media (min-width: 782px) {
+    @media (min-width: 660px) {
       display: none;
     }
   }
