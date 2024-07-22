@@ -5,7 +5,7 @@ export const ProjectsContext = createContext();
 
 export function ProjectsProvider({ children }) {
   const [projects, setProjects] = useState([]);
-  
+
   const [project, setProject] = useState({
     userId: "",
     _id: Date.now().toString(),
@@ -27,9 +27,7 @@ export function ProjectsProvider({ children }) {
   useEffect(() => {
     async function fetchProjects() {
       try {
-        const res = await fetch(
-          "https://portfolio-backend-seven-henna.vercel.app/api/projects"
-        );
+        const res = await fetch(import.meta.env.VITE_DB_URL);
         if (!res.ok) {
           throw new Error("Erreur lors de la récupération des données");
         }

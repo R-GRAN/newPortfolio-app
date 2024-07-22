@@ -26,7 +26,7 @@ function AddProject() {
   async function fetchProjects() {
     try {
       const res = await fetch(
-        "https://portfolio-backend-seven-henna.vercel.app/api/projects"
+       import.meta.env.VITE_DB_URL
       );
       if (!res.ok) {
         throw new Error("Erreur lors de la récupération des données");
@@ -102,6 +102,7 @@ function AddProject() {
     const { name, value } = evt.target;
     setProject({ ...project, [name]: value });
   }
+
   function handleChangeImg(evt) {
     const { name, files } = evt.target;
     setFile(evt.target.files[0]);
@@ -109,6 +110,7 @@ function AddProject() {
     const imageUrl = URL.createObjectURL(files[0]);
     setProject({ ...project, [name]: imageUrl });
   }
+
   function handleChangeIntoArray(evt) {
     const { name, value } = evt.target;
     const array = value.split("-");
@@ -121,11 +123,13 @@ function AddProject() {
     formRef.current.reset();
 
     if (fakeToken) {
-      setProjects([...projects, project]);
+      const ProjectWithNewId = { ...project, _id: Date.now().toString() };
+
+      setProjects([...projects, ProjectWithNewId]);
       alert(
         `Félicitations ! Vous venez de de poster le projet "${project.title}" !`
       );
-      navigate(`/projects/${project._id}`);
+      navigate(`/projects/${ProjectWithNewId._id}`);
     } else if (token) {
       addproject();
     }
@@ -182,7 +186,7 @@ function AddProject() {
             type="text"
             name="title"
             id="title"
-            value={project.title.trim()}
+            value={project.title}
             placeholder="Ex : Un nouveau projet"
             required
             onChange={(evt) => handleChange(evt)}
@@ -206,7 +210,7 @@ function AddProject() {
           <textarea
             name="description"
             id="description"
-            value={project.description.trim()}
+            value={project.description}
             cols="30"
             rows="10"
             placeholder="Description du projet"
@@ -232,7 +236,7 @@ function AddProject() {
             type="text"
             name="githubUrl"
             id="githubUrl"
-            value={project.githubUrl.trim()}
+            value={project.githubUrl}
             placeholder="https://github.com/R-GRAN/"
             required
             onChange={(evt) => handleChange(evt)}

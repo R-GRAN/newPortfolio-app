@@ -1,35 +1,31 @@
 import { useState } from "react";
 import {
   FaReact,
-  FaAngular,
   FaNodeJs,
   FaFigma,
   FaGitAlt,
   FaGithub,
-  FaCcStripe,
   FaLaptopCode,
   FaSass,
+FaCcStripe,
 } from "react-icons/fa";
 import {
   SiAxios,
   SiMongodb,
   SiTypescript,
   SiPostman,
-  SiPayhip,
   SiJsonwebtokens,
   SiVercel,
   SiRapid,
-  SiMamp,
   SiJavascript,
   SiTailwindcss,
-  SiJest,
+  SiShadcnui
 } from "react-icons/si";
 import SkillItem from "@/components/skillsItem/SkillItem";
 import "@/components/skills/Skills.scss";
 
 function Skills() {
   const skills = [
-    { name: "Angular", icon: FaAngular, type: "front", color: "#F51649" },
     { name: "React", icon: FaReact, type: "front", color: "#00b2ff" },
     { name: "NodeJS", icon: FaNodeJs, type: "back", color: "green" },
     { name: "MongoDB", icon: SiMongodb, type: "back", color: "green" },
@@ -43,22 +39,21 @@ function Skills() {
     { name: "Figma ", icon: FaFigma, type: "tools", color: "" },
     { name: "Git", icon: FaGitAlt, type: "tools", color: "#F34F29" },
     { name: "GitHub", icon: FaGithub, type: "tools", color: "" },
-    { name: "Payhip", icon: SiPayhip, type: "tools", color: "#7883E6" },
     {
       name: "Json Web Tokens",
       icon: SiJsonwebtokens,
       type: "tools",
       color: "",
     },
-    { name: "Stripe", icon: FaCcStripe, type: "tools", color: "#7883E6" },
     { name: "Vercel", icon: SiVercel, type: "tools", color: "" },
-    { name: "Rapid", icon: SiRapid, type: "back", color: "#0057DB" },
-    { name: "MAMP", icon: SiMamp, type: "tools", color: "#2169A0" },
+    { name: "Rapid", icon: SiRapid, type: "tools", color: "#0057DB" },
     { name: "JavaScript", icon: SiJavascript, type: "tools", color: "#ffe300" },
     { name: "Axios", icon: SiAxios, type: "tools", color: "#681DE0" },
     { name: "Tailwind", icon: SiTailwindcss, type: "front", color: "#37BDF9" },
     { name: "Sass", icon: FaSass, type: "front", color: "#EC8DB9" },
-    { name: "Jest", icon: SiJest, type: "tools", color: "#B63A10" },
+    { name: "Stripe", icon: FaCcStripe, type: "tools", color: "#7883E6" },
+    { name: "Shadcn/ui", icon: SiShadcnui, type: "tools", color: "" },
+    
   ];
 
   const sortedSkills = [...skills].sort((a, b) => a.name.localeCompare(b.name));

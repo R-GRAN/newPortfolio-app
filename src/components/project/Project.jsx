@@ -14,7 +14,7 @@ function Project({ project }) {
         <h3>{project.title}</h3>
         <h4>{project.category}</h4>
 
-        <p>{project.description}</p>
+        <p className="description">{project.description}</p>
       </div>
     </article>
   );

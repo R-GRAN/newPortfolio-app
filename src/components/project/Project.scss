@@ -20,6 +20,9 @@
   &:hover {
     animation: zoomInAnimation 0.3s forwards;
   }
+  .description {
+    text-align: justify;
+  }
 }
 
 .project-img-container {
@@ -30,10 +33,6 @@
   border-radius: 5px;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.7);
 }
-
-
-
-
 
 .project-img {
   position: relative;

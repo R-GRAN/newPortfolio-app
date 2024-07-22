@@ -1,4 +1,4 @@
-import { FaReact, FaAngular, FaNodeJs } from "react-icons/fa";
+import { FaReact, FaNodeJs } from "react-icons/fa";
 import { SiMongodb } from "react-icons/si";
 import "./HeroLanding.scss";
 import { Link } from "react-router-dom";
@@ -18,7 +18,6 @@ function HeroLanding() {
         </p>{" "}
         <h2 className="description-logos">
           <FaReact />
-          <FaAngular />
           <FaNodeJs />
           <SiMongodb />
         </h2>
