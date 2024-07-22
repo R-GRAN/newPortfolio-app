@@ -27,7 +27,7 @@ export function ProjectsProvider({ children }) {
   useEffect(() => {
     async function fetchProjects() {
       try {
-        const res = await fetch(import.meta.env.VITE_DB_URL);
+        const res = await fetch("https://portfolio-backend-seven-henna.vercel.app/api/projects");
         if (!res.ok) {
           throw new Error("Erreur lors de la récupération des données");
         }

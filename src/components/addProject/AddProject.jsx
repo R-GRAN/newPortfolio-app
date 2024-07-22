@@ -25,9 +25,7 @@ function AddProject() {
 
   async function fetchProjects() {
     try {
-      const res = await fetch(
-       import.meta.env.VITE_DB_URL
-      );
+      const res = await fetch("https://portfolio-backend-seven-henna.vercel.app/api/projects");
       if (!res.ok) {
         throw new Error("Erreur lors de la récupération des données");
       }
@@ -47,15 +45,13 @@ function AddProject() {
 
     try {
       const response = await fetch(
-        `${"https://portfolio-backend-seven-henna.vercel.app/api/projects"}`,
-        {
-          method: "POST",
-          headers: {
-            Authorization: `Bearer ${parsedToken.token}`,
-          },
-          body: bodyFormData,
-        }
-      );
+        "https://portfolio-backend-seven-henna.vercel.app/api/projects", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${parsedToken.token}`,
+        },
+        body: bodyFormData,
+      });
 
       if (!response.ok) {
         throw new Error("Network response was not ok");
