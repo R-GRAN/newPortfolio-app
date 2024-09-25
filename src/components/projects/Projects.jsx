@@ -8,6 +8,7 @@ import { TokensContext } from "@/assets/utils/context/TokensContext.jsx";
 function Projets() {
   const { projects, setProject } = useContext(ProjectsContext);
   const { token, fakeToken } = useContext(TokensContext);
+  const reverseProjects = [...projects].reverse();
 
   return (
     <>
@@ -17,7 +18,7 @@ function Projets() {
         {projects.length === 0 && (
           <p>Il faudrait penser à alimenter ce portfolio !</p>
         )}
-        {projects.map((project) => (
+        {/* projects */reverseProjects.map((project) => (
           <Link
             key={project._id}
             to={"/projects/" + project._id}

@@ -7,7 +7,7 @@ import {
   FaGithub,
   FaLaptopCode,
   FaSass,
-FaCcStripe,
+  FaCcStripe,
 } from "react-icons/fa";
 import {
   SiAxios,
@@ -19,7 +19,6 @@ import {
   SiRapid,
   SiJavascript,
   SiTailwindcss,
-  SiShadcnui
 } from "react-icons/si";
 import SkillItem from "@/components/skillsItem/SkillItem";
 import "@/components/skills/Skills.scss";
@@ -47,13 +46,17 @@ function Skills() {
     },
     { name: "Vercel", icon: SiVercel, type: "tools", color: "" },
     { name: "Rapid", icon: SiRapid, type: "tools", color: "#0057DB" },
-    { name: "JavaScript", icon: SiJavascript, type: "tools", color: "#ffe300" },
+    {
+      name: "JavaScript",
+      icon: SiJavascript,
+      type: "tools",
+      color: "#ffe300",
+      background: "black",
+    },
     { name: "Axios", icon: SiAxios, type: "tools", color: "#681DE0" },
     { name: "Tailwind", icon: SiTailwindcss, type: "front", color: "#37BDF9" },
     { name: "Sass", icon: FaSass, type: "front", color: "#EC8DB9" },
     { name: "Stripe", icon: FaCcStripe, type: "tools", color: "#7883E6" },
-    { name: "Shadcn/ui", icon: SiShadcnui, type: "tools", color: "" },
-    
   ];
 
   const sortedSkills = [...skills].sort((a, b) => a.name.localeCompare(b.name));

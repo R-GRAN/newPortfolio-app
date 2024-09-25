@@ -16,6 +16,15 @@ function SingleProject() {
   return (
     <section>
       <Project project={foundProject} />
+
+      <a
+        className="github-link"
+        href={foundProject.githubUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <button>Découvrir le repo GitHub</button>
+      </a>
       {(token || fakeToken) && (
         <>
           <HandleProjectMenu id={id} />

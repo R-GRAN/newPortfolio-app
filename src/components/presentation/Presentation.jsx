@@ -12,26 +12,16 @@ function Presentation() {
           alt="dessin représentant Rémy"
         />
         <div className="presentation-text">
+
           <p className="presentation-p">
-            Je suis Rémy, développeur web qui a choisi cette profession parce
-            que je suis curieux ! J&apos;aime les technologies, apprendre,
-            résoudre des problèmes complexes, apprehender différentes approches
-            et logiques, et le développement m&apos;offre l&apos;opportunité de
-            faire toutes ces belles choses au quotidien.
+          Je m&apos;appelle Rémy, et je suis développeur web, animé par une réelle passion pour les technologies et la résolution de problèmes. Curieux de nature, je prends plaisir à explorer de nouvelles approches et à continuellement apprendre pour améliorer mes compétences.
           </p>
           <p className="presentation-p">
-            Bon j&apos;admets que le haut salaire 💸 que l&apos;on
-            m&apos;a fait miroiter ainsi le sentiment de liberté que l&apos;on
-            m&apos;a promis avec le télétravail 🏝️ sont aussi de belles sources
-            de motivation !
+          Depuis mes débuts, je me suis formé à l&apos;ensemble du processus de création d&apos;une application : de l&apos;analyse des besoins clients, à la conception, jusqu&apos;à la maintenance. Mon objectif est de fournir des solutions efficaces, durables et adaptées aux besoins de chaque projet.
           </p>
           <p className="presentation-p">
-            Depuis mon premier &quot;Hello World&quot;, j&apos;ai toujours
-            cherché à me perfectionner et offrir le meilleur de mes compétences.
-            Et aujourd&apos;hui, je suis capable de concevoir un projet en
-            commencant par la partie analyse du besoin client puis passer à la
-            conception de l&apos;application, jusqu&apos;à terminer par sa
-            maintenance, un point bien trop souvent negligé.
+
+          Je suis motivé par l&apos;idée de contribuer à des projets innovants tout en assurant une expérience utilisateur fluide et de qualité.
           </p>
         </div>
       </div>
